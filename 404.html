@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Page Not Found | JH Laser Services</title>
 <script>
-/* Sections are one screen tall. Phones (under 768px) use the mobile layout and the phone's visible screen height
-   with the browser bars showing (100svh), so nothing from the next section peeks in and the page doesn't jump
-   when the bars hide. Older phones fall back to the measured window height.
+/* Sections are one screen tall. On phones (under 768px) the height is the largest of the measures the phone reports
+   (screen with the browser bars showing, window height, visible area), so the first section always fills the screen
+   whatever browser or iOS version. It only grows while you're at the top of the page, so nothing jumps while scrolling.
    Tablets (768-1279px) show the 1440px desktop layout scaled down; laptops and desktops are unchanged. */
 window.jhFit=function(){var d=document.documentElement,w=window.innerWidth,h=window.innerHeight;
-if(w<768){d.style.zoom='';if(window.jhSV===undefined)window.jhSV=!!(window.CSS&&CSS.supports('height','100svh'));if(window.jhSV){d.style.setProperty('--screen','100svh');window.jhW=w;return;}if(w!==window.jhW){window.jhW=w;d.style.setProperty('--screen',h+'px');}return;}
-window.jhW=0;var z=w<1280?w/1440:1;d.style.zoom=z<1?z:'';var H=h/z;d.style.setProperty('--screen',(z<1?Math.min(H,1100):(H>1300?900:H))+'px');};
+if(w<768){d.style.zoom='';var sv=0;try{var p=document.createElement('div');p.style.cssText='position:absolute;top:0;left:0;width:0;visibility:hidden;height:100svh';d.appendChild(p);sv=p.getBoundingClientRect().height;d.removeChild(p);}catch(e){}
+var vv=window.visualViewport?visualViewport.height:0,H=Math.round(Math.max(sv,h,vv));
+if(w!==window.jhW||(H>window.jhH&&(window.scrollY||0)<10)){window.jhW=w;window.jhH=H;d.style.setProperty('--screen',H+'px');}return;}
+window.jhW=0;window.jhH=0;var z=w<1280?w/1440:1;d.style.zoom=z<1?z:'';var H2=h/z;d.style.setProperty('--screen',(z<1?Math.min(H2,1100):(H2>1300?900:H2))+'px');};
 window.jhFit();
 </script>
 <meta name="robots" content="noindex">
@@ -34,16 +36,6 @@ window.jhFit();
 html{background:#F8F6F2;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @media (max-width:767px){.jh-d{display:none!important}}
 @media (min-width:768px){.jh-m{display:none!important}}
-/* Page transitions: a quick, subtle cross-fade between pages (supported browsers; others change pages normally). */
-@view-transition{navigation:auto}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.22s;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
-::view-transition-old(root){animation-name:jh-vt-out}
-::view-transition-new(root){animation-name:jh-vt-in}
-@keyframes jh-vt-out{to{opacity:0}}
-@keyframes jh-vt-in{from{opacity:0;transform:translateY(6px)}}
-@media (max-width:767px){.jh-m header.glass{view-transition-name:jh-header}}
-@media (min-width:768px){.jh-d header.glass{view-transition-name:jh-header}}
-@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
 .jh-skip{position:absolute;left:12px;top:-60px;z-index:1000;background:#3A3B30;color:#fff;padding:12px 18px;border-radius:999px;font:500 12px/1 'Hanken Grotesk',sans-serif;letter-spacing:.18em;text-decoration:none}
 .jh-skip:focus{top:12px}
 .jh-ar{display:inline-block;width:1em;height:1em;vertical-align:-.14em;overflow:visible}
@@ -252,7 +244,7 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[t
   var D=document.querySelector('.jh-d'),M=document.querySelector('.jh-m');
   function mob(){return window.innerWidth<768;}
   function vis(){return mob()?M:D;}
-  window.addEventListener('resize',window.jhFit);
+  window.addEventListener('resize',window.jhFit);window.addEventListener('load',window.jhFit);if(window.visualViewport)visualViewport.addEventListener('resize',window.jhFit);setTimeout(window.jhFit,300);
   // Footer height, so the closing call-to-action and the footer together fill one screen.
   function foot(){var f=vis()&&vis().querySelector('footer');if(f&&f.offsetHeight)document.documentElement.style.setProperty('--foot',f.offsetHeight+'px');}
   foot();window.addEventListener('load',foot);window.addEventListener('resize',foot);
@@ -342,6 +334,17 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[t
     function r(){var t=document.getElementById('m-treatments'),i=t&&t.querySelector('.t-card>div'),dt=t&&t.querySelector('.t-dots');
       o.textContent='inner '+innerWidth+'x'+innerHeight+'  vv '+(window.visualViewport?Math.round(visualViewport.height):'-')+'\nsvh '+u('100svh')+'  dvh '+u('100dvh')+'  lvh '+u('100lvh')+'  vh '+u('100vh')+'\n--screen '+getComputedStyle(document.documentElement).getPropertyValue('--screen')+(t?'\ntreatments sec '+Math.round(t.getBoundingClientRect().height)+'  img '+Math.round(i.getBoundingClientRect().height)+'  dots->end '+Math.round(t.getBoundingClientRect().bottom-dt.getBoundingClientRect().bottom):'')+'\n'+navigator.userAgent.slice(0,120);}
     document.body.appendChild(o);r();window.addEventListener('resize',r);window.addEventListener('scroll',r,{passive:true});});
+
+  // Speed: once this page has settled, quietly load the other pages in the background so links open instantly;
+  // also start loading a page as soon as a finger touches its link.
+  (function(){var done={};function warm(u){if(!u||done[u])return;done[u]=1;try{fetch(u,{credentials:'same-origin'}).catch(function(){});}catch(e){}}
+    function local(a){var h=a.getAttribute('href');return h&&h.charAt(0)==='/'&&h.indexOf('//')!==0?h.split('#')[0]:null;}
+    document.addEventListener('touchstart',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(a)warm(local(a));},{passive:true});
+    document.addEventListener('mouseover',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(a)warm(local(a));},{passive:true});
+    var idle=window.requestIdleCallback||function(f){setTimeout(f,1500);};
+    window.addEventListener('load',function(){idle(function(){var c=navigator.connection;if(c&&(c.saveData||/2g/.test(c.effectiveType||'')))return;
+      var seen=[];vis()&&vis().querySelectorAll('a[href^="/"]').forEach(function(a){var u=local(a);if(u&&seen.indexOf(u)<0&&u!==location.pathname)seen.push(u);});
+      seen.slice(0,12).forEach(function(u,i){setTimeout(function(){warm(u);},i*150);});});});})();
 
   if(!M)return;
   // ---- Mobile layout ----

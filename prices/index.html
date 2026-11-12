@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Prices | JH Laser Services, Maidstone</title>
 <script>
-/* Sections are one screen tall. Phones (under 768px) use the mobile layout and the phone's screen height,
-   recalculated only when the width changes, so the page doesn't jump when the browser toolbar hides.
+/* Sections are one screen tall. Phones (under 768px) use the mobile layout and the phone's visible screen height
+   with the browser bars showing (100svh), so nothing from the next section peeks in and the page doesn't jump
+   when the bars hide. Older phones fall back to the measured window height.
    Tablets (768-1279px) show the 1440px desktop layout scaled down; laptops and desktops are unchanged. */
 window.jhFit=function(){var d=document.documentElement,w=window.innerWidth,h=window.innerHeight;
-if(w<768){d.style.zoom='';if(w!==window.jhW){window.jhW=w;d.style.setProperty('--screen',h+'px');}return;}
+if(w<768){d.style.zoom='';if(window.jhSV===undefined)window.jhSV=!!(window.CSS&&CSS.supports('height','100svh'));if(window.jhSV){d.style.setProperty('--screen','100svh');window.jhW=w;return;}if(w!==window.jhW){window.jhW=w;d.style.setProperty('--screen',h+'px');}return;}
 window.jhW=0;var z=w<1280?w/1440:1;d.style.zoom=z<1?z:'';var H=h/z;d.style.setProperty('--screen',(z<1?Math.min(H,1100):(H>1300?900:H))+'px');};
 window.jhFit();
 </script>
@@ -48,6 +49,25 @@ html{background:#F8F6F2;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
 .jh-skip{position:absolute;left:12px;top:-60px;z-index:1000;background:#3A3B30;color:#fff;padding:12px 18px;border-radius:999px;font:500 12px/1 'Hanken Grotesk',sans-serif;letter-spacing:.18em;text-decoration:none}
 .jh-skip:focus{top:12px}
+/* Directions: choose Google Maps or Apple Maps. A bottom sheet on phones, a small card on larger screens. */
+.jh-dir{position:fixed;inset:0;z-index:2000;display:flex;align-items:flex-end;justify-content:center;visibility:hidden;pointer-events:none;transition:visibility 0s linear .28s}
+.jh-dir.on{visibility:visible;pointer-events:auto;transition:visibility 0s}
+.jh-dir-bg{position:absolute;inset:0;background:rgba(47,48,42,.38);opacity:0;transition:opacity .28s cubic-bezier(.2,.7,.2,1)}
+.jh-dir.on .jh-dir-bg{opacity:1}
+.jh-dir-p{position:relative;width:100%;max-width:420px;box-sizing:border-box;margin:0 12px calc(12px + env(safe-area-inset-bottom));padding:26px 22px 18px;border-radius:28px;background:#F8F6F2;box-shadow:0 24px 60px rgba(58,59,48,.22);font-family:'Hanken Grotesk',sans-serif;font-weight:300;color:#3A3B30;transform:translateY(24px);opacity:0;transition:transform .32s cubic-bezier(.2,.7,.2,1),opacity .24s ease}
+.jh-dir.on .jh-dir-p{transform:none;opacity:1}
+.jh-dir-k{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6E5E52}
+.jh-dir-t{margin:10px 0 0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.1rem;line-height:1}
+.jh-dir-t i{color:#7B6A5D}
+.jh-dir-a{margin:6px 0 0;font-size:14px;line-height:1.6;color:#4E4F44}
+.jh-dir-b{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.jh-dir-b a,.jh-dir-x{display:block;box-sizing:border-box;width:100%;text-align:center;text-decoration:none;padding:18px 24px;border-radius:999px;font:500 12px/1 'Hanken Grotesk',sans-serif;letter-spacing:.18em;cursor:pointer}
+.jh-dir-b a.d{background:#3A3B30;color:#fff}
+.jh-dir-b a.l{background:#fff;color:#3A3B30;border:1px solid rgba(58,59,48,.14)}
+.jh-dir-x{all:unset;box-sizing:border-box;display:block;width:100%;text-align:center;margin-top:6px;padding:14px;font:400 11px/1 'DM Mono',monospace;letter-spacing:.12em;color:#6E5E52;cursor:pointer}
+.jh-dir-b a:focus-visible,.jh-dir-x:focus-visible{outline:2px solid #3A3B30;outline-offset:3px}
+@media (min-width:768px){.jh-dir{align-items:center}.jh-dir-p{margin:0;padding:32px 30px 22px}}
+@media (prefers-reduced-motion:reduce){.jh-dir,.jh-dir-bg,.jh-dir-p{transition:none}}
 </style>
 <style>
 @media (min-width:768px){
@@ -311,7 +331,7 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[t
     <div style="margin-top: auto; padding-top: 32px; border-top: 1px solid rgba(58,59,48,0.14); display: flex; flex-direction: column; gap: 14px">
       <a href="mailto:hello@jhlaserservices.co.uk" style="font-size: 15px; color: #3A3B30; text-decoration: none">hello@jhlaserservices.co.uk</a>
       <a href="/contact/" class="jh-cta m-btn" style="background: #3A3B30; color: #FFFFFF">GET IN TOUCH</a>
-      <a href="https://g.page/r/CfGIBVa8vEw7EBM/review" target="_blank" rel="noopener" class="glass m-btn" style="color: #3A3B30">LEAVE A REVIEW ↗</a>
+      <a href="https://g.page/r/CfGIBVa8vEw7EBM/review" target="_blank" rel="noopener" class="glass m-btn" style="color: #3A3B30">LEAVE A REVIEW →</a>
     </div>
   </nav>
   
@@ -402,10 +422,28 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[t
       if(!open){item.classList.add('is-open');btn.setAttribute('aria-expanded','true');}
     });
   });
-  // Directions: Google Maps by default (the Google Maps app on Android, or the browser).
-  // iPhones and iPads open Apple Maps, the built-in maps app, instead.
-  var ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1);
-  if(ios)document.querySelectorAll('[data-directions]').forEach(function(a){a.href='https://maps.apple.com/?daddr='+encodeURIComponent('Barty Farm, Roundwell, Bearsted, Maidstone ME14 4HL')+'&dirflg=d';});
+  // Directions: a choice of Google Maps or Apple Maps, since people have different apps installed.
+  // Apple devices list Apple Maps first. Without JavaScript, the link still opens Google Maps.
+  (function(){
+    var ADDR='Barty Farm, Roundwell, Bearsted, Maidstone ME14 4HL';
+    var G='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent('JH Laser Services, '+ADDR);
+    var A='https://maps.apple.com/?daddr='+encodeURIComponent(ADDR)+'&dirflg=d';
+    var apple=/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+    var g='<a class="'+(apple?'l':'d')+'" href="'+G+'" target="_blank" rel="noopener">GOOGLE MAPS</a>',a='<a class="'+(apple?'d':'l')+'" href="'+A+'" target="_blank" rel="noopener">APPLE MAPS</a>';
+    var box=null,last=null;
+    function close(){if(!box)return;box.classList.remove('on');box.setAttribute('aria-hidden','true');if(last)try{last.focus();}catch(e){}}
+    function open(from){
+      if(!box){box=document.createElement('div');box.className='jh-dir';box.setAttribute('aria-hidden','true');
+        box.innerHTML='<div class="jh-dir-bg"></div><div class="jh-dir-p" role="dialog" aria-modal="true" aria-labelledby="jh-dir-t"><div class="jh-dir-k">DIRECTIONS</div><h2 class="jh-dir-t" id="jh-dir-t">Open in <i>maps.</i></h2><p class="jh-dir-a">Barty Farm, Roundwell, Bearsted, ME14 4HL</p><div class="jh-dir-b">'+(apple?a+g:g+a)+'</div><button type="button" class="jh-dir-x">CANCEL</button></div>';
+        document.body.appendChild(box);
+        box.querySelector('.jh-dir-bg').addEventListener('click',close);box.querySelector('.jh-dir-x').addEventListener('click',close);
+        box.querySelectorAll('.jh-dir-b a').forEach(function(x){x.addEventListener('click',function(){setTimeout(close,300);});});
+        box.addEventListener('keydown',function(e){if(e.key==='Escape'){e.stopPropagation();close();}
+          if(e.key==='Tab'){var f=box.querySelectorAll('a,button'),first=f[0],lastF=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();lastF.focus();}else if(!e.shiftKey&&document.activeElement===lastF){e.preventDefault();first.focus();}}});}
+      last=from;box.offsetWidth;box.classList.add('on');box.setAttribute('aria-hidden','false');setTimeout(function(){box.querySelector('.jh-dir-b a').focus({preventScroll:true});},30);
+    }
+    document.querySelectorAll('[data-directions]').forEach(function(l){l.setAttribute('aria-haspopup','dialog');l.addEventListener('click',function(e){e.preventDefault();open(l);});});
+  })();
   // Prices: treatment tabs (each layout has its own set; choosing one keeps both layouts in step).
   function pick(k){
     document.querySelectorAll('.ptab[data-tab]').forEach(function(b){var on=b.getAttribute('data-tab')===k;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');});

@@ -2,13 +2,15 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>JH Laser Services | Nurse-Led Laser Clinic in Maidstone</title>
 <script>
-/* Screens narrower than 1280px (tablets) show the full 1440px desktop layout scaled down proportionally,
-   so nothing reflows or overlaps. Laptops and desktops 1280px wide or more are unchanged. */
-window.jhFit=function(){var d=document.documentElement,w=window.innerWidth,h=window.innerHeight,z=(w<1280&&w>=768)?w/1440:1;
-d.style.zoom=z<1?z:'';var H=h/z;d.style.setProperty('--screen',(z<1?Math.min(H,1100):(H>1300?900:H))+'px');};
+/* Sections are one screen tall. Phones (under 768px) use the mobile layout and the phone's screen height,
+   recalculated only when the width changes, so the page doesn't jump when the browser toolbar hides.
+   Tablets (768-1279px) show the 1440px desktop layout scaled down; laptops and desktops are unchanged. */
+window.jhFit=function(){var d=document.documentElement,w=window.innerWidth,h=window.innerHeight;
+if(w<768){d.style.zoom='';if(w!==window.jhW){window.jhW=w;d.style.setProperty('--screen',h+'px');}return;}
+window.jhW=0;var z=w<1280?w/1440:1;d.style.zoom=z<1?z:'';var H=h/z;d.style.setProperty('--screen',(z<1?Math.min(H,1100):(H>1300?900:H))+'px');};
 window.jhFit();
 </script>
 <meta name="description" content="Nurse-led laser clinic in Maidstone, Kent. IPL hair removal, laser tattoo removal, skin rejuvenation and scar therapy with a registered nurse.">
@@ -17,6 +19,7 @@ window.jhFit();
 <link rel="icon" href="/jh-favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/jh-icon.png">
 <meta property="og:site_name" content="JH Laser Services">
+<meta property="og:locale" content="en_GB">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JH Laser Services | Nurse-Led Laser Clinic in Maidstone">
 <meta property="og:description" content="Nurse-led laser clinic in Maidstone, Kent. IPL hair removal, laser tattoo removal, skin rejuvenation and scar therapy with a registered nurse.">
@@ -26,10 +29,31 @@ window.jhFit();
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="JH Laser Services logo">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "JH Laser Services", "url": "https://jhlaserservices.co.uk/"}, {"@type": "HealthAndBeautyBusiness", "@id": "https://jhlaserservices.co.uk/#clinic", "name": "JH Laser Services", "description": "Nurse-led laser clinic in Maidstone, Kent, offering IPL hair removal, laser tattoo removal, skin rejuvenation and scar therapy.", "url": "https://jhlaserservices.co.uk/", "logo": "https://jhlaserservices.co.uk/jh-icon.png", "image": "https://jhlaserservices.co.uk/assets/clinic-entrance.jpg", "telephone": "+447800810955", "email": "hello@jhlaserservices.co.uk", "address": {"@type": "PostalAddress", "streetAddress": "Barty Farm, Roundwell, Bearsted", "addressLocality": "Maidstone", "addressRegion": "Kent", "postalCode": "ME14 4HL", "addressCountry": "GB"}, "geo": {"@type": "GeoCoordinates", "latitude": 51.27152, "longitude": 0.591859}, "areaServed": {"@type": "City", "name": "Maidstone"}, "priceRange": "££", "legalName": "Hissett Medical Ltd", "founder": {"@type": "Person", "name": "Justina Hissett", "jobTitle": "Registered Nurse"}, "sameAs": ["https://www.instagram.com/jhlaserservices"], "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IPL hair removal", "url": "https://jhlaserservices.co.uk/hair-removal/"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Laser tattoo removal", "url": "https://jhlaserservices.co.uk/tattoo-removal/"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Skin rejuvenation", "url": "https://jhlaserservices.co.uk/skin-rejuvenation/"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Scar therapy", "url": "https://jhlaserservices.co.uk/scar-therapy/"}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://jhlaserservices.co.uk/#website", "name": "JH Laser Services", "url": "https://jhlaserservices.co.uk/", "inLanguage": "en-GB"}, {"@type": "HealthAndBeautyBusiness", "@id": "https://jhlaserservices.co.uk/#clinic", "name": "JH Laser Services", "description": "Nurse-led laser clinic in Maidstone, Kent, offering IPL hair removal, laser tattoo removal, skin rejuvenation and scar therapy.", "url": "https://jhlaserservices.co.uk/", "logo": "https://jhlaserservices.co.uk/jh-icon.png", "image": "https://jhlaserservices.co.uk/assets/clinic-entrance.jpg", "telephone": "+447800810955", "email": "hello@jhlaserservices.co.uk", "address": {"@type": "PostalAddress", "streetAddress": "Barty Farm, Roundwell, Bearsted", "addressLocality": "Maidstone", "addressRegion": "Kent", "postalCode": "ME14 4HL", "addressCountry": "GB"}, "geo": {"@type": "GeoCoordinates", "latitude": 51.27152, "longitude": 0.591859}, "hasMap": "https://www.google.com/maps/dir/?api=1&destination=JH%20Laser%20Services%2C%20Barty%20Farm%2C%20Roundwell%2C%20Bearsted%2C%20Maidstone%20ME14%204HL", "areaServed": {"@type": "City", "name": "Maidstone"}, "priceRange": "££", "legalName": "Hissett Medical Ltd", "founder": {"@type": "Person", "name": "Justina Hissett", "jobTitle": "Registered Nurse"}, "sameAs": ["https://www.instagram.com/jhlaserservices", "https://g.page/r/CfGIBVa8vEw7EBM"], "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IPL hair removal", "url": "https://jhlaserservices.co.uk/hair-removal/"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Laser tattoo removal", "url": "https://jhlaserservices.co.uk/tattoo-removal/"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Skin rejuvenation", "url": "https://jhlaserservices.co.uk/skin-rejuvenation/"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Scar therapy", "url": "https://jhlaserservices.co.uk/scar-therapy/"}}]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&amp;family=Hanken+Grotesk:wght@300;400;500&amp;family=DM+Mono&amp;display=swap">
+<link rel="preload" as="image" href="/assets/justina-hissett.jpg" media="(min-width: 768px)">
+<link rel="preload" as="image" href="/assets/justina-hissett.jpg" media="(max-width: 767px)">
 <style>
+html{background:#F8F6F2;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (max-width:767px){.jh-d{display:none!important}}
+@media (min-width:768px){.jh-m{display:none!important}}
+/* Page transitions: a quick, subtle cross-fade between pages (supported browsers; others change pages normally). */
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.22s;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+::view-transition-old(root){animation-name:jh-vt-out}
+::view-transition-new(root){animation-name:jh-vt-in}
+@keyframes jh-vt-out{to{opacity:0}}
+@keyframes jh-vt-in{from{opacity:0;transform:translateY(6px)}}
+@media (max-width:767px){.jh-m header.glass{view-transition-name:jh-header}}
+@media (min-width:768px){.jh-d header.glass{view-transition-name:jh-header}}
+@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+.jh-skip{position:absolute;left:12px;top:-60px;z-index:1000;background:#3A3B30;color:#fff;padding:12px 18px;border-radius:999px;font:500 12px/1 'Hanken Grotesk',sans-serif;letter-spacing:.18em;text-decoration:none}
+.jh-skip:focus{top:12px}
+</style>
+<style>
+@media (min-width:768px){
 body{margin:0}
 a{color:#3A3B30}a:hover{color:#7B6A5D}
 .mono{font-family:'DM Mono',monospace;font-weight:400;letter-spacing:0.06em}
@@ -60,32 +84,108 @@ details>summary::-webkit-details-marker{display:none}
 @media (prefers-reduced-motion:reduce){.faq-a,.faq-plus{transition:none}}
 /* Keyboard focus: a clear dark ring with a light halo, visible on light and dark sections. */
 a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid #3A3B30;outline-offset:3px;box-shadow:0 0 0 5px rgba(248,246,242,.85)}
-</style>
-</head>
-<body><div id="jh-hold" role="region" aria-label="Mobile site coming soon">
-<img src="/assets/jh-logo.svg" alt="JH Laser Services logo" style="width:120px;height:auto;display:block;margin:0 auto">
-<p class="jh-hold-k">MOBILE SITE COMING SOON</p>
-<h1>Nearly <i>ready.</i></h1>
-<p class="jh-hold-p">The mobile version of this site is on its way. For now, please visit on a laptop or desktop to see treatments and prices, or get in touch below.</p>
-<a class="jh-hold-b" href="mailto:hello@jhlaserservices.co.uk?subject=Consultation%20enquiry">EMAIL ME</a>
-<a class="jh-hold-b jh-hold-g" href="tel:+447800810955">CALL OR TEXT</a>
-<p class="jh-hold-a">Barty Farm, Roundwell, Bearsted<br>Maidstone, Kent, ME14 4HL</p>
-</div>
-<style>
-#jh-hold{display:none}
+}
 @media (max-width:767px){
- #jh-hold{display:flex;flex-direction:column;justify-content:center;min-height:100vh;min-height:100svh;box-sizing:border-box;padding:48px 28px;text-align:center;background:#F1ECE6 url("/assets/texture-cream.jpg") center/cover;font-family:'Hanken Grotesk',sans-serif;font-weight:300;color:#3A3B30}
- #jh-hold~*,.jh-page{display:none !important}
- #jh-hold .jh-hold-k{margin:40px 0 0;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;color:#6E5E52}
- #jh-hold h1{margin:14px 0 0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:3.2rem;line-height:1}
- #jh-hold h1 i{color:#7B6A5D}
- #jh-hold .jh-hold-p{margin:18px auto 0;max-width:22rem;font-size:1rem;line-height:1.7;color:#4E4F44}
- #jh-hold .jh-hold-b{display:block;margin:12px auto 0;max-width:20rem;width:100%;box-sizing:border-box;padding:18px;border-radius:999px;background:#3A3B30;color:#fff;text-decoration:none;font-size:12px;font-weight:500;letter-spacing:.18em}
- #jh-hold .jh-hold-b:first-of-type{margin-top:30px}
- #jh-hold .jh-hold-g{background:rgba(255,255,255,.6);color:#3A3B30;border:1px solid rgba(58,59,48,.15)}
- #jh-hold .jh-hold-a{margin:28px 0 0;font-size:13px;line-height:1.7;color:#6E5E52}
+body{margin:0}
+a{color:#3A3B30}a:hover{color:#7B6A5D}
+.mono{font-family:'DM Mono',monospace;font-weight:400;letter-spacing:0.06em}
+.glass{background:rgba(255,255,255,0.58);-webkit-backdrop-filter:blur(20px) saturate(140%);backdrop-filter:blur(20px) saturate(140%);border:1px solid rgba(255,255,255,0.75);box-shadow:0 18px 44px rgba(58,59,48,0.12)}
+.glass-dark{background:rgba(255,255,255,0.10);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.22);box-shadow:0 18px 44px rgba(0,0,0,0.22)}
+.tx-sage{background:#939681 url("/assets/texture-sage.jpg") center/cover}
+.tx-taupe{background:#C1AB9C url("/assets/texture-taupe.jpg") center/cover}
+.tx-sand{background:#E8DCD0 url("/assets/texture-sand.jpg") center/cover}
+.tx-mocha{background:#7B6A5D url("/assets/texture-mocha.jpg") center/cover}
+.tx-cream{background:#F1ECE6 url("/assets/texture-cream.jpg") center/cover}
+input,select{font:inherit}
+:root{--screen:844px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+footer{position:relative}footer::after{content:"";position:absolute;left:0;right:0;top:100%;height:100vh;background:#2F302A}
+.jh-cta{transition:background-color .3s ease,color .3s ease,box-shadow .3s ease}
+.jh-cta:hover,.jh-cta:focus-visible{background:#FFFFFF !important;color:#3A3B30 !important;box-shadow:inset 0 0 0 1px rgba(58,59,48,0.18)}
+.m-btn{display:block;text-align:center;text-decoration:none;padding:18px 24px;border-radius:999px;font-size:12px;font-weight:500;letter-spacing:0.18em}
+.m-burger{all:unset;box-sizing:border-box;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#3A3B30}
+.m-menu a{text-decoration:none}
+/* Menu opens with a quick, subtle fade and lift, matching the page transitions. */
+.m-menu{animation:m-menu-in .26s cubic-bezier(.2,.7,.2,1) both}
+.m-menu>*{animation:m-menu-item .34s cubic-bezier(.2,.7,.2,1) both}
+.m-menu>*:nth-child(2){animation-delay:.03s}.m-menu>*:nth-child(3){animation-delay:.06s}.m-menu>*:nth-child(4){animation-delay:.09s}
+@keyframes m-menu-in{from{opacity:0}}
+@keyframes m-menu-item{from{opacity:0;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.m-menu,.m-menu>*{animation:none}}
+/* Shorter phones: tighten the open menu so it fits without scrolling. */
+@media (max-height:740px){.m-menu{padding-top:86px!important;padding-bottom:20px!important}.m-menu>div>a[style*="2.6rem"]{font-size:2.15rem!important}.m-menu>div>a[style*="15px; line-height"]{padding:3px 0!important}.m-menu>div:last-child{padding-top:16px!important;gap:10px!important}.m-menu .m-btn{padding:15px 24px}}
+/* FAQ accordion: one answer open at a time, smooth open and close. */
+.faq-q{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:18px 0;display:flex;justify-content:space-between;gap:16px;align-items:center;color:inherit}
+.faq-q:focus-visible{outline:2px solid #3A3B30;outline-offset:4px;border-radius:8px}
+.faq-plus{display:inline-block;font-size:16px;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.faq-a{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .55s cubic-bezier(.2,.7,.2,1),opacity .4s ease}
+.faq-in{overflow:hidden;min-height:0}
+.faq-item.is-open .faq-a{grid-template-rows:1fr;opacity:1}
+.faq-item.is-open .faq-plus{transform:rotate(45deg)}
+.ptab{all:unset;box-sizing:border-box;cursor:pointer;flex:none;padding:12px 18px;border-radius:999px;font-size:11px;font-weight:500;letter-spacing:0.14em;background:rgba(255,255,255,0.6);border:1px solid rgba(58,59,48,0.14);white-space:nowrap}
+.ptab.on{background:#3A3B30;color:#FFFFFF;border-color:#3A3B30}
+.ptab:focus-visible{outline:2px solid #3A3B30;outline-offset:3px}
+.pp{display:none}
+.pp.on{display:block}
+@media (prefers-reduced-motion:reduce){.faq-a,.faq-plus{transition:none}}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid #3A3B30;outline-offset:3px;box-shadow:0 0 0 5px rgba(248,246,242,.85)}
+/* Treatments carousel: swipe sideways, dots show which card is in view. */
+.t-track{margin-top:22px;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 30px;scroll-padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.t-track::-webkit-scrollbar{display:none}
+.t-card{flex:0 0 calc(100% - 52px);box-sizing:border-box;scroll-snap-align:start;border-radius:26px;padding:8px;display:flex;flex-direction:column}
+.t-dots{display:flex;justify-content:center;margin-top:-12px}
+.t-dot{all:unset;box-sizing:border-box;width:26px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.t-dot::before{content:"";width:7px;height:7px;border-radius:999px;background:rgba(58,59,48,0.25);transition:width .35s ease,background-color .35s ease}
+.t-dot.on::before{width:22px;background:#3A3B30}
+.t-dot:focus-visible{outline:2px solid #3A3B30;outline-offset:-6px;border-radius:999px}
+.t-card .m-btn{white-space:nowrap}
+@media (max-width:374px){.t-card .m-btn{letter-spacing:.1em!important}}
+@media (max-height:720px){.t-card h3{font-size:1.8rem!important}.t-card p{font-size:1.05rem!important}.t-card>div:nth-child(2){padding-top:14px!important}.t-track{margin-top:16px!important;padding-bottom:24px!important}.t-track~*{margin-top:-10px}#m-list{padding-top:86px!important;padding-bottom:20px!important}}
+/* Tabbed section: a sticky glass selector swaps the panels. */
+.x-tabs{position:sticky;top:76px;z-index:50;display:flex;gap:4px;padding:4px;border-radius:999px;margin-bottom:22px}
+.x-tab{all:unset;box-sizing:border-box;flex:1;text-align:center;cursor:pointer;padding:11px 6px;border-radius:999px;font-size:12px;font-weight:500;letter-spacing:0.04em;color:#3A3B30;white-space:nowrap;transition:background-color .25s ease,color .25s ease}
+.x-tab.on{background:#3A3B30;color:#FFFFFF}
+.x-tab:focus-visible{outline:2px solid #3A3B30;outline-offset:2px}
+.x-panel{display:none}
+.x-panel.on{display:block;animation:x-in .3s ease}
+@keyframes x-in{from{opacity:0;transform:translateY(6px)}}
+.x-tabs::before{background:linear-gradient(var(--tint,#F8F6F2) 92%,transparent) !important}
+.x-tabs::before{background:linear-gradient(var(--tint,#F8F6F2) 92%,transparent)}
+@media (prefers-reduced-motion:reduce){.x-panel.on{animation:none}}
+/* Price finder: compact so it fits one screen. */
+.pf-l{display:block;margin:0 0 6px 4px;font-size:10px;color:#E9E5DC}
+.pf-note:empty{display:none}
+@media (max-height:760px){.pf h2{font-size:2.1rem!important}.pf h2+p{display:none}.pf select{height:46px!important}.pf .pf-l{margin-bottom:4px!important}.pf .glass{padding-top:16px!important;padding-bottom:16px!important}.pf .glass .m-btn{margin-top:12px!important;padding-top:14px!important;padding-bottom:14px!important}}
+/* Reviews carousel (real Google reviews only, quoted word for word). */
+.r-track{position:relative;margin-top:20px;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 18px;scroll-padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.r-track::-webkit-scrollbar{display:none}
+.r-card{flex:1 0 100%;box-sizing:border-box;scroll-snap-align:start;border-radius:26px;padding:22px 22px 20px;display:flex;flex-direction:column}
+.r-track:has(.r-card+.r-card) .r-card{flex:0 0 calc(100% - 52px)}
+
+#m-questions .r-card p{font-size:14.5px!important;line-height:1.5!important}#m-questions .r-card p+p{margin-top:7px!important}
+@media (max-height:760px){#m-questions .r-card p{font-size:14px!important}#m-questions .r-card p+p{margin-top:5px!important}}
+/* Every section fills one phone screen (--screen = the visitor's screen height). */
+.jh-page>section{min-height:var(--screen);box-sizing:border-box;display:flex;flex-direction:column;justify-content:center}
+/* The closing call-to-action and the footer share one screen: the CTA takes whatever height the footer leaves. */
+:root{--foot:352px}
+.jh-page>section.m-cta{min-height:calc(var(--screen) - var(--foot))}
+/* Shorter phones: drop the CTA sentence so the heading, button and footer still fit one screen. */
+/* Home sections: every section clears the fixed header by the same amount, with the same space at the bottom. */
+@media (max-height:720px){.m-cta p{display:none}.jh-page>section.h-sec{padding-top:88px!important;padding-bottom:24px!important}.h-top{padding-top:92px!important;padding-bottom:24px!important}.h-top h1{font-size:2.8rem!important;margin-top:16px!important}.h-top h1+p{font-size:.95rem!important;line-height:1.55!important;margin-top:12px!important}.h-top h1+p+a{margin-top:16px!important}.h-top h1+p+a+div{margin-top:16px!important}.h-top .m-btn{padding-top:16px!important;padding-bottom:16px!important}.h-top a[aria-label^="About Justina"] img{width:50px!important;height:60px!important}}
+/* Menu: fades in and lifts slightly when opened, fades out when closed. */
+.m-menu{animation:none!important;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s cubic-bezier(.2,.7,.2,1),visibility 0s linear .24s}
+.m-menu>*{animation:none!important;transform:translateY(8px);transition:transform .32s cubic-bezier(.2,.7,.2,1)}
+.m-menu.m-open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .24s cubic-bezier(.2,.7,.2,1),visibility 0s}
+.m-menu.m-open>*{transform:none}
+.m-menu.m-open>*:nth-child(2){transition-delay:.03s}.m-menu.m-open>*:nth-child(3){transition-delay:.06s}.m-menu.m-open>*:nth-child(4){transition-delay:.09s}
+@media (prefers-reduced-motion:reduce){.m-menu,.m-menu>*{transition:none!important}}
 }
 </style>
+</head>
+<body>
+<a class="jh-skip" href="#main">SKIP TO CONTENT</a>
+<div class="jh-d">
 <div class="jh-page" style="width: 100%; min-height: 100vh; background: #F8F6F2; font-family: 'Hanken Grotesk', sans-serif; font-weight: 300; color: #3A3B30; overflow: clip">
 
   <section id="top" style="position: relative; z-index: 2; height: var(--screen); box-sizing: border-box; padding: 24px 24px 0; display: flex; flex-direction: column">
@@ -99,7 +199,7 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,su
         <a href="/treatments/" style="text-decoration: none; padding: 6px 0;">TREATMENTS</a>
         <a href="/prices/" style="text-decoration: none; padding: 6px 0;">PRICES</a>
       </nav>
-      <a href="#top" aria-label="JH Laser Services home"><img src="/assets/jh-logo.svg" alt="JH Laser Services logo" style="display: block; width: 118px; height: auto"></a>
+      <a href="#top" aria-label="JH Laser Services home"><img decoding="async" loading="lazy" src="/assets/jh-logo.svg" alt="JH Laser Services logo" style="display: block; width: 118px; height: auto"></a>
       <div style="display: flex; align-items: center; justify-content: flex-end; gap: 34px; font-size: 12px; font-weight: 500; letter-spacing: 0.18em">
         <a href="/about/" style="text-decoration: none; padding: 6px 0;">ABOUT</a>
         <a href="/contact/" class="jh-cta" style="color: #FFFFFF; background: #3A3B30; text-decoration: none; padding: 15px 24px; border-radius: 999px">CONTACT</a>
@@ -118,12 +218,12 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,su
       </div>
 
       <div style="flex: 1 1 460px; min-width: 0; position: relative; height: calc(var(--screen) - 340px)">
-        <img src="/assets/justina-hissett.jpg" alt="Justina Hissett, registered nurse at JH Laser Services in Maidstone" style="position: absolute; right: 0; top: 0; width: 82%; height: 100%; object-fit: cover; object-position: center 22%; border-radius: 28px">
+        <img decoding="async" loading="eager" fetchpriority="high" src="/assets/justina-hissett.jpg" alt="Justina Hissett, registered nurse at JH Laser Services in Maidstone" style="position: absolute; right: 0; top: 0; width: 82%; height: 100%; object-fit: cover; object-position: center 22%; border-radius: 28px">
         <div class="glass" style="position: absolute; left: 0; top: 7%; border-radius: 16px; padding: 11px 16px 11px 12px; display: flex; gap: 10px; align-items: center">
-          <div style="width: 32px; height: 32px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex: none"><img src="/assets/jh-mark.svg" alt="" aria-hidden="true" style="width: 18px"></div>
+          <div style="width: 32px; height: 32px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex: none"><img decoding="async" loading="lazy" src="/assets/jh-mark.svg" alt="" aria-hidden="true" style="width: 18px"></div>
           <div><div style="font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; line-height: 1.1">Justina Hissett</div><div class="mono" style="font-size: 9.5px; color: #6E5E52; margin-top: 2px">NHS NURSE FOR 20+ YEARS</div></div>
         </div>
-        <a href="https://www.restorescartherapy.com" class="glass" style="position: absolute; left: 0; bottom: 7%; border-radius: 16px; padding: 11px 16px; display: block; text-decoration: none">
+        <a href="https://www.restorescartherapy.com" class="glass" style="position: absolute; left: 0; bottom: 7%; border-radius: 16px; padding: 11px 16px; display: block; text-decoration: none" target="_blank" rel="noopener">
           <span><span class="mono" style="display: block; font-size: 9.5px; color: #6E5E52">CERTIFIED PRACTITIONER</span><span style="display: block; margin-top: 3px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.05; white-space: nowrap">Restore Scar Therapy</span></span>
         </a>
         <div class="glass" style="position: absolute; right: -14px; bottom: 24%; border-radius: 999px; padding: 9px 14px; display: flex; align-items: center; gap: 8px">
@@ -172,12 +272,24 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,su
       </a>
       <a href="/scar-therapy/" class="tx-mocha" style="flex: 1 1 260px; min-width: 0; height: 24rem; border-radius: 28px; position: relative; overflow: hidden; text-decoration: none; display: block">
         <span class="glass mono" style="position: absolute; left: 20px; top: 20px; border-radius: 999px; padding: 9px 14px; font-size: 11px">04</span>
-        <img src="/assets/restore-badge.svg" alt="Restore Scar Therapy certified" style="position: absolute; right: 22px; top: 22px; width: 72px; height: 72px; display: block; mix-blend-mode: multiply; opacity: 0.7">
+        <img decoding="async" loading="lazy" src="/assets/restore-badge.svg" alt="Restore Scar Therapy certified" style="position: absolute; right: 22px; top: 22px; width: 72px; height: 72px; display: block; mix-blend-mode: multiply; opacity: 0.7">
         <span class="glass" style="position: absolute; left: 14px; right: 14px; bottom: 14px; border-radius: 22px; padding: 22px 22px 18px; display: block"><span style="display: block; font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 1.8rem; line-height: 1; white-space: nowrap">Scar Therapy</span>
           <span style="display: block; margin-top: 8px; height: 3.1em; overflow: hidden; font-size: 14px; line-height: 1.55; color: rgb(78, 79, 68)">Restore therapy for surgical and injury scars.</span>
           <span class="mono" style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 11px"><span>FROM £80</span><span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 50%; background: rgb(58, 59, 48); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center">→</span></span>
         </span>
       </a>
+    </div>
+  </section>
+
+  <section id="reviews" style="width: 100%; min-height: var(--screen); box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center">
+    <div style="width: 100%; max-width: 1093px; margin-left: auto; margin-right: auto; padding: 40px 32px; box-sizing: border-box; text-align: center">
+      <img decoding="async" loading="lazy" src="/assets/jh-mark.svg" alt="" aria-hidden="true" style="width: 46px; height: auto">
+      <div style="margin-top: 22px"><span role="img" aria-label="Rated 5 out of 5" style="letter-spacing: 3px; color: #B08F6E; font-size: 20px">★★★★★</span></div><div class="mono" style="margin-top: 12px; font-size: 12px; color: #6E5E52">GOOGLE REVIEW · NOVEMBER 2026</div>
+      <blockquote style="margin: 28px 0 0; padding: 0">
+        <p style="margin: 0 auto; max-width: 1029px; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2rem; line-height: 1.35; color: #3A3B30">“I had my first hair removal session to remove hair from my under arms. The location and building are lovely and very welcoming and the room has a homely feel to it. Justina is friendly and welcoming. She talks you through the procedure with confidence and knowledge and puts you at ease straight away. The procedure was pain free and Justina talked me through every step. I would highly recommend the services Justina provides.”</p>
+        <div style="margin-top: 30px"><cite style="font-style: normal; font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #7B6A5D"><i>Katherine F</i></cite><div class="mono" style="margin-top: 8px; font-size: 11px; color: #6E5E52">IPL HAIR REMOVAL</div></div>
+      </blockquote>
+      <a href="https://share.google/nPBrGPzFVpavP2WVR" target="_blank" rel="noopener" class="mono" style="display: inline-block; margin-top: 34px; font-size: 11px; color: #3A3B30; text-decoration: none; border-bottom: 1px solid #3A3B30; padding-bottom: 3px">READ ALL REVIEWS ON GOOGLE ↗</a>
     </div>
   </section>
 
@@ -271,12 +383,12 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,su
         <p style="margin: 20px 0 0; max-width: 26rem; font-size: 1.05rem; line-height: 1.7; color: #DCD7CC">Prices for IPL hair removal, laser tattoo removal, skin rejuvenation and scar therapy. Pick a treatment and area to see the price per session.</p>
         <div style="margin-top: 34px; display: flex; flex-direction: column; gap: 16px; max-width: 460px">
         <label class="mono" style="display: flex; flex-direction: column; gap: 8px; font-size: 11px; color: #E9E5DC">1 · TREATMENT
-          <span style="position: relative; display: block"><select id="pf-cat" aria-label="Treatment" style="width: 100%; height: 56px; border: 1px solid rgba(255,255,255,0.35); border-radius: 16px; background: rgba(255,255,255,0.12); color: #FFFFFF; padding: 0 52px 0 16px; font-family: 'Hanken Grotesk', sans-serif; font-size: 16px; -webkit-appearance: none; appearance: none; cursor: pointer">
+          <span style="position: relative; display: block"><select data-pf-cat aria-label="Treatment" style="width: 100%; height: 56px; border: 1px solid rgba(255,255,255,0.35); border-radius: 16px; background: rgba(255,255,255,0.12); color: #FFFFFF; padding: 0 52px 0 16px; font-family: 'Hanken Grotesk', sans-serif; font-size: 16px; -webkit-appearance: none; appearance: none; cursor: pointer">
             
           </select><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; right: 24px; top: 50%; margin-top: -7px; pointer-events: none"><path d="M6 9l6 6 6-6"></path></svg></span>
         </label>
         <label class="mono" style="display: flex; flex-direction: column; gap: 8px; font-size: 11px; color: #E9E5DC">2 · AREA OR SIZE
-          <span style="position: relative; display: block"><select id="pf-item" aria-label="Area or size" style="width: 100%; height: 56px; border: 1px solid rgba(255,255,255,0.35); border-radius: 16px; background: rgba(255,255,255,0.12); color: #FFFFFF; padding: 0 52px 0 16px; font-family: 'Hanken Grotesk', sans-serif; font-size: 16px; -webkit-appearance: none; appearance: none; cursor: pointer">
+          <span style="position: relative; display: block"><select data-pf-item aria-label="Area or size" style="width: 100%; height: 56px; border: 1px solid rgba(255,255,255,0.35); border-radius: 16px; background: rgba(255,255,255,0.12); color: #FFFFFF; padding: 0 52px 0 16px; font-family: 'Hanken Grotesk', sans-serif; font-size: 16px; -webkit-appearance: none; appearance: none; cursor: pointer">
             
           </select><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; right: 24px; top: 50%; margin-top: -7px; pointer-events: none"><path d="M6 9l6 6 6-6"></path></svg></span>
         </label>
@@ -307,24 +419,203 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,su
   <footer id="faqs" style="background: #2F302A; color: #DCD7CC; padding-top: 24px">
     <div style="margin: 0 40px; padding: 56px 0; border-top: 1px solid #4A4B40">
     <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end">
-      <div style="flex: 1 1 280px; min-width: 0"><img src="/assets/jh-logo-cream.svg" alt="JH Laser Services logo" style="display: block; width: 230px; height: auto"></div>
+      <div style="flex: 1 1 280px; min-width: 0"><img decoding="async" loading="lazy" src="/assets/jh-logo-cream.svg" alt="JH Laser Services logo" style="display: block; width: 230px; height: auto"></div>
       <div style="flex: 1 1 180px; min-width: 0; font-size: 14px; line-height: 1.9; margin-bottom: -6px"><div class="mono" style="font-size: 11px; color: #A9A497; margin-bottom: 10px">VISIT</div><span>Barty Farm, Roundwell, Bearsted<br>Maidstone, Kent, ME14 4HL</span></div>
       <div style="flex: 1 1 180px; min-width: 0; font-size: 14px; line-height: 1.9; margin-bottom: -6px"><div class="mono" style="font-size: 11px; color: #A9A497; margin-bottom: 10px">CONTACT</div><a href="tel:+447800810955" style="color: #DCD7CC; text-decoration: none">+44 (0) 7800 810 955</a><br><a href="mailto:hello@jhlaserservices.co.uk" style="color: #DCD7CC; text-decoration: none">hello@jhlaserservices.co.uk</a></div>
       <div style="flex: 1 1 180px; min-width: 0; font-size: 14px; line-height: 1.9; margin-bottom: -6px"><div class="mono" style="font-size: 11px; color: #A9A497; margin-bottom: 10px">INFORMATION</div><a href="/privacy/" style="color: #DCD7CC">Privacy policy</a><br><a href="/cancellation/" style="color: #DCD7CC">Cancellation policy</a></div>
     </div>
     <div style="max-width: 1240px; margin: 48px auto 0; padding-top: 22px; border-top: 1px solid #4A4B40; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px 32px; font-size: 12px; line-height: 1.6; color: #A9A497">
       <span>JH Laser Services is a trading name of Hissett Medical Ltd, registered in England &amp; Wales.</span>
-      <a href="https://instagram.com/jhlaserservices" aria-label="JH Laser Services on Instagram" style="color: #DCD7CC; display: block; line-height: 0"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"></circle></svg></a>
+      <a href="https://instagram.com/jhlaserservices" aria-label="JH Laser Services on Instagram" style="color: #DCD7CC; display: block; line-height: 0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"></circle></svg></a>
       <span style="text-align: right">© 2026 JH Laser Services</span>
     </div>
     </div>
   </footer>
 
 </div>
+</div>
+<div class="jh-m">
+<div class="jh-page" style="width: 100%; min-height: 100vh; background: #F8F6F2; font-family: 'Hanken Grotesk', sans-serif; font-weight: 300; color: #3A3B30; overflow: clip">
+  <header class="glass" style="position: fixed; top: 12px; left: 12px; right: 12px; z-index: 100; border-radius: 999px; height: 60px; box-sizing: border-box; padding: 0 8px 0 22px; display: flex; align-items: center; justify-content: space-between">
+    <a href="/" aria-label="JH Laser Services home" style="display: block"><img decoding="async" loading="lazy" src="/assets/jh-logo.svg" alt="JH Laser Services logo" style="display: block; width: 78px; height: auto"></a>
+    <div style="display: flex; align-items: center; gap: 6px">
+      <a href="/contact/" class="jh-cta" style="background: #3A3B30; color: #FFFFFF; text-decoration: none; padding: 12px 16px; border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: 0.16em">CONTACT</a>
+      <button type="button" class="m-burger m-menu-btn" aria-expanded="false" aria-controls="m-menu" aria-label="Menu"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 8h16M4 16h16"></path></svg></button>
+    </div>
+  </header>
+  
+  <nav id="m-menu" class="m-menu tx-cream" aria-label="Menu" style="position: fixed; inset: 0; z-index: 90; box-sizing: border-box; padding: 104px 28px 32px; display: flex; flex-direction: column; overflow-y: auto">
+    <div style="display: flex; flex-direction: column; gap: 6px"><a href="/" aria-current="page" style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.6rem; line-height: 1.15; color: #7B6A5D">Home</a><a href="/treatments/" style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.6rem; line-height: 1.15; color: #3A3B30">Treatments</a></div>
+    <div style="display: flex; flex-direction: column; padding: 6px 0 10px 2px"><a href="/hair-removal/" style="font-size: 15px; line-height: 1.3; color: #4E4F44; padding: 5px 0"><span aria-hidden="true" style="color: #7B6A5D">–&nbsp;</span>IPL hair removal</a><a href="/tattoo-removal/" style="font-size: 15px; line-height: 1.3; color: #4E4F44; padding: 5px 0"><span aria-hidden="true" style="color: #7B6A5D">–&nbsp;</span>Tattoo removal</a><a href="/skin-rejuvenation/" style="font-size: 15px; line-height: 1.3; color: #4E4F44; padding: 5px 0"><span aria-hidden="true" style="color: #7B6A5D">–&nbsp;</span>Skin rejuvenation</a><a href="/scar-therapy/" style="font-size: 15px; line-height: 1.3; color: #4E4F44; padding: 5px 0"><span aria-hidden="true" style="color: #7B6A5D">–&nbsp;</span>Scar therapy</a></div>
+    <div style="display: flex; flex-direction: column; gap: 6px"><a href="/prices/" style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.6rem; line-height: 1.15; color: #3A3B30">Prices</a><a href="/about/" style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.6rem; line-height: 1.15; color: #3A3B30">About</a><a href="/contact/" style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.6rem; line-height: 1.15; color: #3A3B30">Contact</a></div>
+    <div style="margin-top: auto; padding-top: 32px; border-top: 1px solid rgba(58,59,48,0.14); display: flex; flex-direction: column; gap: 14px">
+      <a href="mailto:hello@jhlaserservices.co.uk" style="font-size: 15px; color: #3A3B30; text-decoration: none">hello@jhlaserservices.co.uk</a>
+      <a href="/contact/" class="jh-cta m-btn" style="background: #3A3B30; color: #FFFFFF">GET IN TOUCH</a>
+      <a href="https://g.page/r/CfGIBVa8vEw7EBM/review" target="_blank" rel="noopener" class="glass m-btn" style="color: #3A3B30">LEAVE A REVIEW ↗</a>
+    </div>
+  </nav>
+  
+  <section class="h-top" style="position: relative; min-height: var(--screen); box-sizing: border-box; padding: 104px 20px 48px; display: flex; flex-direction: column; justify-content: center;">
+    <div aria-hidden="true" style="position: absolute; right: -40%; top: -10%; width: 26rem; height: 26rem; border-radius: 50%; background: #939681; opacity: 0.42; filter: blur(90px)"></div><div aria-hidden="true" style="position: absolute; left: -40%; top: 45%; width: 24rem; height: 24rem; border-radius: 50%; background: #E8DCD0; opacity: 0.9; filter: blur(90px)"></div>
+    <div style="position: relative">
+      <span class="glass mono" style="display: inline-flex; align-items: center; gap: 9px; padding: 9px 15px; border-radius: 999px; font-size: 10.5px"><span aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #939681"></span>NURSE-LED LASER CLINIC · MAIDSTONE</span>
+      <h1 style="margin: 22px 0 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 3.3rem; line-height: 0.95; letter-spacing: -0.02em">Nurse-led laser care, <i style="color: #7B6A5D">gently delivered.</i></h1>
+      <p style="margin: 20px 0 0; font-size: 1.05rem; line-height: 1.75; color: #4E4F44">IPL hair removal, laser tattoo removal, skin rejuvenation and scar therapy in Maidstone, each treatment carried out by a registered nurse.</p>
+      <a href="/about/" class="glass" aria-label="About Justina Hissett, NHS nurse for 20+ years" style="margin-top: 22px; border-radius: 22px; padding: 7px 18px 7px 7px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: #3A3B30"><img decoding="async" loading="eager" fetchpriority="high" src="/assets/justina-hissett.jpg" alt="" style="flex: none; width: 58px; height: 70px; border-radius: 15px; object-fit: cover; object-position: center 18%; display: block"><span style="flex: 1; min-width: 0"><span style="display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; line-height: 1.1">Justina Hissett</span><span class="mono" style="display: block; margin-top: 3px; font-size: 9.5px; color: #6E5E52">NHS NURSE FOR 20+ YEARS</span></span><span aria-hidden="true" style="font-size: 16px">→</span></a>
+      <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 10px"><a href="#m-treatments" class="jh-cta m-btn" style="background: #3A3B30; color: #FFFFFF">VIEW TREATMENTS</a><a href="/contact/" class="glass m-btn" style="color: #3A3B30">GET IN TOUCH</a></div>
+    </div>
+  </section>
+  <section id="m-treatments" class="h-sec" style="position: relative; overflow: hidden; padding: 100px 0 40px">
+    <div style="padding: 0 20px"><div class="mono" style="font-size: 11px; color: #6E5E52">TREATMENTS</div>
+    <h2 style="margin: 12px 0 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.4rem; line-height: 1">Four treatments, <i style="color: #7B6A5D">one nurse.</i></h2></div>
+    <div class="t-track" role="region" aria-label="Treatments, swipe to see all four" tabindex="0">
+      <article id="h-t01" class="glass t-card" aria-label="IPL Hair Removal, 1 of 4">
+        <div class="tx-sage" style="position: relative; height: clamp(100px, calc(var(--screen) - 574px), 320px); border-radius: 20px; overflow: hidden"><img decoding="async" loading="lazy" src="/assets/ipl-hair-removal-maidstone.jpg" alt="A woman's hand resting against her lips, above a bare shoulder" style="position: absolute; inset: 8px; width: calc(100% - 16px); height: calc(100% - 16px); border-radius: 14px; object-fit: cover; object-position: center; display: block"></div>
+        <div style="padding: 18px 10px 8px; display: flex; flex-direction: column; flex: 1">
+          <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.1rem; line-height: 1">IPL Hair Removal</h3>
+          <p style="margin: 8px 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; line-height: 1.25; color: #6E5E52">Long-term hair reduction on the face and body.</p>
+          <div class="mono" style="margin-top: 14px; font-size: 10.5px; color: #3A3B30">FROM £50 · 30–60 MIN</div>
+          <div style="margin-top: auto; padding-top: 16px; display: flex; gap: 8px"><a href="/hair-removal/" class="jh-cta m-btn" style="flex: 1; padding: 16px 12px; background: #3A3B30; color: #FFFFFF">FIND OUT MORE</a><a href="/prices/?tab=hair#m-price-list" class="glass m-btn" aria-label="IPL Hair Removal prices" style="padding: 16px 16px; color: #3A3B30">PRICES</a></div>
+        </div>
+      </article>
+      <article id="h-t02" class="glass t-card" aria-label="Tattoo Removal, 2 of 4">
+        <div class="tx-taupe" style="position: relative; height: clamp(100px, calc(var(--screen) - 574px), 320px); border-radius: 20px; overflow: hidden"><img decoding="async" loading="lazy" src="/assets/laser-tattoo-removal-maidstone.jpg" alt="A fine-line leaf tattoo on the back of a hand" style="position: absolute; inset: 8px; width: calc(100% - 16px); height: calc(100% - 16px); border-radius: 14px; object-fit: cover; object-position: center; display: block"></div>
+        <div style="padding: 18px 10px 8px; display: flex; flex-direction: column; flex: 1">
+          <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.1rem; line-height: 1">Tattoo Removal</h3>
+          <p style="margin: 8px 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; line-height: 1.25; color: #6E5E52">Fade a tattoo for a cover-up, or work towards clearing it.</p>
+          <div class="mono" style="margin-top: 14px; font-size: 10.5px; color: #3A3B30">FROM £50 · 30–90 MIN</div>
+          <div style="margin-top: auto; padding-top: 16px; display: flex; gap: 8px"><a href="/tattoo-removal/" class="jh-cta m-btn" style="flex: 1; padding: 16px 12px; background: #3A3B30; color: #FFFFFF">FIND OUT MORE</a><a href="/prices/?tab=tattoo#m-price-list" class="glass m-btn" aria-label="Tattoo Removal prices" style="padding: 16px 16px; color: #3A3B30">PRICES</a></div>
+        </div>
+      </article>
+      <article id="h-t03" class="glass t-card" aria-label="Skin Rejuvenation, 3 of 4">
+        <div class="tx-sand" style="position: relative; height: clamp(100px, calc(var(--screen) - 574px), 320px); border-radius: 20px; overflow: hidden"><img decoding="async" loading="lazy" src="/assets/skin-rejuvenation-maidstone.jpg" alt="A dropper of golden serum held over warm, softly lit skin" style="position: absolute; inset: 8px; width: calc(100% - 16px); height: calc(100% - 16px); border-radius: 14px; object-fit: cover; object-position: center; display: block"></div>
+        <div style="padding: 18px 10px 8px; display: flex; flex-direction: column; flex: 1">
+          <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.1rem; line-height: 1">Skin Rejuvenation</h3>
+          <p style="margin: 8px 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; line-height: 1.25; color: #6E5E52">Lighten sun spots and pigmentation, and reduce thread veins.</p>
+          <div class="mono" style="margin-top: 14px; font-size: 10.5px; color: #3A3B30">FROM £50 · 30–60 MIN</div>
+          <div style="margin-top: auto; padding-top: 16px; display: flex; gap: 8px"><a href="/skin-rejuvenation/" class="jh-cta m-btn" style="flex: 1; padding: 16px 12px; background: #3A3B30; color: #FFFFFF">FIND OUT MORE</a><a href="/prices/?tab=skin#m-price-list" class="glass m-btn" aria-label="Skin Rejuvenation prices" style="padding: 16px 16px; color: #3A3B30">PRICES</a></div>
+        </div>
+      </article>
+      <article id="h-t04" class="glass t-card" aria-label="Scar Therapy, 4 of 4">
+        <div class="tx-mocha" style="position: relative; height: clamp(100px, calc(var(--screen) - 574px), 320px); border-radius: 20px; overflow: hidden"><img decoding="async" loading="lazy" src="/assets/scar-therapy-maidstone.jpg" alt="A scar across the back of a woman's shoulder, her hand resting on the shoulder" style="position: absolute; inset: 8px; width: calc(100% - 16px); height: calc(100% - 16px); border-radius: 14px; object-fit: cover; object-position: center; display: block"><img decoding="async" loading="lazy" src="/assets/restore-badge.svg" alt="Restore Scar Therapy certified" style="position: absolute; left: 18px; bottom: 18px; width: 60px; height: 60px; mix-blend-mode: multiply; opacity: 0.7"></div>
+        <div style="padding: 18px 10px 8px; display: flex; flex-direction: column; flex: 1">
+          <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.1rem; line-height: 1">Scar Therapy</h3>
+          <p style="margin: 8px 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; line-height: 1.25; color: #6E5E52">Restore therapy for surgical and injury scars.</p>
+          <div class="mono" style="margin-top: 14px; font-size: 10.5px; color: #3A3B30">FROM £80 · 40–60 MIN</div>
+          <div style="margin-top: auto; padding-top: 16px; display: flex; gap: 8px"><a href="/scar-therapy/" class="jh-cta m-btn" style="flex: 1; padding: 16px 12px; background: #3A3B30; color: #FFFFFF">FIND OUT MORE</a><a href="/prices/?tab=scar#m-price-list" class="glass m-btn" aria-label="Scar Therapy prices" style="padding: 16px 16px; color: #3A3B30">PRICES</a></div>
+        </div>
+      </article>
+    </div>
+    <div class="t-dots"><button type="button" class="t-dot on" data-dot="0" aria-current="true" aria-label="Show IPL Hair Removal"></button><button type="button" class="t-dot" data-dot="1" aria-current="false" aria-label="Show Tattoo Removal"></button><button type="button" class="t-dot" data-dot="2" aria-current="false" aria-label="Show Skin Rejuvenation"></button><button type="button" class="t-dot" data-dot="3" aria-current="false" aria-label="Show Scar Therapy"></button></div>
+  </section>
+  <section id="m-questions" class="tx-cream h-sec" style="--tint: #F1ECE6; position: relative; padding: 100px 20px 40px; justify-content: flex-start">
+    <div class="x-tabs glass" role="tablist" aria-label="Why nurse-led, common questions and reviews"><button type="button" class="x-tab on" role="tab" data-xtab="0" aria-selected="true">Why nurse-led</button><button type="button" class="x-tab" role="tab" data-xtab="1" aria-selected="false">FAQs</button><button type="button" class="x-tab" role="tab" data-xtab="2" aria-selected="false">Reviews</button></div>
+    <div class="x-panel on" data-xpanel="0" role="tabpanel">
+    <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.5rem; line-height: 1; color: #3A3B30">Why nurse-led <i style="color: #7B6A5D">matters.</i></h2>
+    <p style="margin: 18px 0 0; font-size: 1rem; line-height: 1.75; color: #4E4F44">Laser treatment needs more than a machine. It needs clinical judgement, from your first consultation to your last session.</p>
+    <div class="glass" style="margin-top: 28px; border-radius: 24px; padding: 4px 22px"><div style="display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 18px 0;"><span class="mono" style="font-size: 12px; color: #7B6A5D; padding-top: 4px">1</span><div><div style="font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; line-height: 1.1">Medical assessment first</div><p style="margin: 6px 0 0; font-size: 14.5px; line-height: 1.65; color: #4E4F44">Every consultation covers your medical history, medication and skin type, and you'll get an honest answer if a treatment isn't right for you.</p></div></div><div style="display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 18px 0; border-top: 1px solid rgba(58,59,48,0.12);"><span class="mono" style="font-size: 12px; color: #7B6A5D; padding-top: 4px">2</span><div><div style="font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; line-height: 1.1">The same nurse, every session</div><p style="margin: 6px 0 0; font-size: 14.5px; line-height: 1.65; color: #4E4F44">I carry out every treatment myself. No rotating staff and no technicians, from your patch test to your final session.</p></div></div><div style="display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 18px 0; border-top: 1px solid rgba(58,59,48,0.12);"><span class="mono" style="font-size: 12px; color: #7B6A5D; padding-top: 4px">3</span><div><div style="font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; line-height: 1.1">Clinical standards</div><p style="margin: 6px 0 0; font-size: 14.5px; line-height: 1.65; color: #4E4F44">Patch testing, laser safety protocols and written aftercare, with a registered nurse's judgement at every step.</p></div></div><div style="display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 18px 0; border-top: 1px solid rgba(58,59,48,0.12);"><span class="mono" style="font-size: 12px; color: #7B6A5D; padding-top: 4px">4</span><div><div style="font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; line-height: 1.1">Honest results</div><p style="margin: 6px 0 0; font-size: 14.5px; line-height: 1.65; color: #4E4F44">Realistic session numbers and clear prices upfront, so you know what to expect before you start.</p></div></div></div>
+    </div>
+    <div class="x-panel" data-xpanel="1" role="tabpanel">
+    <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.5rem; line-height: 1; color: #3A3B30">Common questions, <i style="color: #7B6A5D">answered.</i></h2>
+    <p style="margin: 18px 0 0; font-size: 1rem; line-height: 1.75; color: #4E4F44">Quick answers to commonly asked questions. There's more on each treatment page too.</p>
+    <div style="margin-top: 26px; display: flex; flex-direction: column; gap: 10px">
+      <div class="glass faq-item is-open" style="border-radius: 18px; padding: 0 20px">
+        <button type="button" class="faq-q" aria-expanded="true"><h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; line-height: 1.15">Does IPL hair removal hurt?</h3><span class="mono faq-plus" aria-hidden="true">+</span></button>
+        <div class="faq-a"><div class="faq-in"><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.7; color: #4E4F44">Most people describe it as a warm snap, like a rubber band, lasting a fraction of a second. The face, underarms and bikini line are more sensitive than the legs or back.</p><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.7; color: #4E4F44">It gets easier as hair grows back finer, and cooling is used throughout.</p><a href="/hair-removal/" class="mono" style="display: inline-block; margin: 2px 0 20px; font-size: 11px; color: #3A3B30; text-decoration: none; border-bottom: 1px solid #3A3B30; padding-bottom: 2px">MORE ABOUT IPL HAIR REMOVAL →</a></div></div>
+      </div>
+      <div class="glass faq-item" style="border-radius: 18px; padding: 0 20px">
+        <button type="button" class="faq-q" aria-expanded="false"><h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; line-height: 1.15">How many sessions will I need?</h3><span class="mono faq-plus" aria-hidden="true">+</span></button>
+        <div class="faq-a"><div class="faq-in"><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.7; color: #4E4F44">Most people need 6 to 8 sessions of IPL hair removal, 4 to 8 weeks apart, with 1 or 2 top-ups a year. The face, neck, back and chest can take up to 12.</p><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.7; color: #4E4F44">Tattoo removal varies more. Your plan confirms the number before you start.</p><a href="/treatments/" class="mono" style="display: inline-block; margin: 2px 0 20px; font-size: 11px; color: #3A3B30; text-decoration: none; border-bottom: 1px solid #3A3B30; padding-bottom: 2px">COMPARE ALL TREATMENTS →</a></div></div>
+      </div>
+      <div class="glass faq-item" style="border-radius: 18px; padding: 0 20px">
+        <button type="button" class="faq-q" aria-expanded="false"><h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; line-height: 1.15">Can any tattoo be removed?</h3><span class="mono faq-plus" aria-hidden="true">+</span></button>
+        <div class="faq-a"><div class="faq-in"><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.7; color: #4E4F44">Most tattoos can be faded and many cleared, but complete removal can't be promised. Black and dark inks respond best, while bright colours like green, yellow and light blue are harder to shift.</p><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.7; color: #4E4F44">You'll get an honest view at your consultation, including whether fading for a cover-up is the better option.</p><a href="/tattoo-removal/" class="mono" style="display: inline-block; margin: 2px 0 20px; font-size: 11px; color: #3A3B30; text-decoration: none; border-bottom: 1px solid #3A3B30; padding-bottom: 2px">MORE ABOUT TATTOO REMOVAL →</a></div></div>
+      </div>
+      <div class="glass faq-item" style="border-radius: 18px; padding: 0 20px">
+        <button type="button" class="faq-q" aria-expanded="false"><h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; line-height: 1.15">Is treatment suitable for my skin?</h3><span class="mono faq-plus" aria-hidden="true">+</span></button>
+        <div class="faq-a"><div class="faq-in"><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.7; color: #4E4F44">Your skin tone, medical history and medication are checked at your consultation and patch test.</p><p style="margin: 0 0 12px; font-size: 15px; line-height: 1.7; color: #4E4F44">Treatment can't go ahead on active acne, cold sores, psoriasis, vitiligo or broken skin, or during pregnancy. Avoid tanning and strong sun for several weeks before.</p><a href="/contact/" class="mono" style="display: inline-block; margin: 2px 0 20px; font-size: 11px; color: #3A3B30; text-decoration: none; border-bottom: 1px solid #3A3B30; padding-bottom: 2px">GET IN TOUCH →</a></div></div>
+      </div>
+    </div>
+    </div>
+    <div class="x-panel" data-xpanel="2" role="tabpanel">
+    <div style="position: relative"><h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.4rem; line-height: 1">In their <i style="color: #7B6A5D">own words.</i></h2>
+    <p style="margin: 14px 0 0; font-size: 1rem; line-height: 1.65; color: #4E4F44">Reviews from clients, shared exactly as they were left on Google.</p></div>
+    <div class="r-track" style="margin-left: -20px; margin-right: -20px"><article class="glass r-card" aria-label="Review from Katherine F" style=""><div style="display: flex; justify-content: space-between; align-items: center"><div style="display: flex; flex-direction: column; gap: 6px"><span role="img" aria-label="Rated 5 out of 5" style="letter-spacing: 3px; color: #B08F6E; font-size: 15px">★★★★★</span><div class="mono" style="font-size: 10px; color: #6E5E52">GOOGLE REVIEW · NOVEMBER 2026</div></div><span aria-hidden="true" style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; line-height: .6; color: #C1AB9C">“</span></div><div style="margin-top: 8px"><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3A3B30">I had my first hair removal session to remove hair from my under arms.</p><p style="margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: #3A3B30">The location and building are lovely and very welcoming and the room has a homely feel to it.</p><p style="margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: #3A3B30">Justina is friendly and welcoming. She talks you through the procedure with confidence and knowledge and puts you at ease straight away.</p><p style="margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: #3A3B30">The procedure was pain free and Justina talked me through every step.</p><p style="margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: #3A3B30">I would highly recommend the services Justina provides.</p></div><div style="margin-top: auto; padding-top: 18px"><div style="padding-top: 16px; border-top: 1px solid rgba(58,59,48,0.12); display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><span style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem">Katherine F</span><span class="mono" style="font-size: 10px; color: #6E5E52">IPL HAIR REMOVAL</span></div></div></article></div>
+    <div style="position: relative"><a href="https://share.google/nPBrGPzFVpavP2WVR" target="_blank" rel="noopener" class="glass m-btn" style="color: #3A3B30">READ ALL REVIEWS ON GOOGLE ↗</a></div>
+    </div>
+  </section>
+  <section id="m-price-finder" class="h-sec pf" style="position: relative; overflow: hidden; background: #3A3B30; color: #F4F1EB; padding: 100px 20px 40px; justify-content: center">
+    <div aria-hidden="true" style="position: absolute; left: -30%; top: -10%; width: 90%; aspect-ratio: 1; border-radius: 50%; background: #939681; opacity: 0.6; filter: blur(90px)"></div>
+    <div aria-hidden="true" style="position: absolute; right: -40%; bottom: 0; width: 90%; aspect-ratio: 1; border-radius: 50%; background: #7B6A5D; opacity: 0.75; filter: blur(90px)"></div>
+    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: linear-gradient(to bottom, rgba(47,48,42,0) 0%, #2F302A 100%); pointer-events: none"></div>
+    <div style="position: relative">
+      <div class="mono" style="font-size: 11px; color: #D5D0C4">PRICE FINDER</div>
+      <h2 style="margin: 12px 0 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.4rem; line-height: 1">What would you <i style="color: #E8DCD0">like treated?</i></h2>
+      <p style="margin: 12px 0 0; font-size: .95rem; line-height: 1.6; color: #DCD7CC">Pick a treatment and area to see the price per session.</p>
+      <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px">
+        <label style="display: block"><span class="pf-l mono">TREATMENT</span><span style="position: relative; display: block"><select data-pf-cat aria-label="Treatment" style="width: 100%; height: 50px; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; padding: 0 44px 0 18px; font-family: 'Hanken Grotesk', sans-serif; font-size: 16px; -webkit-appearance: none; appearance: none; cursor: pointer">
+            
+          </select><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; right: 20px; top: 50%; margin-top: -7px; pointer-events: none"><path d="M6 9l6 6 6-6"></path></svg></span></label>
+        <label style="display: block"><span class="pf-l mono">AREA OR SIZE</span><span style="position: relative; display: block"><select data-pf-item aria-label="Area or size" style="width: 100%; height: 50px; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; padding: 0 44px 0 18px; font-family: 'Hanken Grotesk', sans-serif; font-size: 16px; -webkit-appearance: none; appearance: none; cursor: pointer">
+            
+          </select><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; right: 20px; top: 50%; margin-top: -7px; pointer-events: none"><path d="M6 9l6 6 6-6"></path></svg></span></label>
+      </div>
+      <div class="glass" style="margin-top: 16px; border-radius: 26px; padding: 18px 20px 20px; background: rgba(255,255,255,0.72); color: #3A3B30">
+        <div class="mono" style="font-size: 10px; color: #6E5E52"><span data-pf="catLabel"></span></div>
+        <div style="margin-top: 8px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><div style="min-width: 0; font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; line-height: 1.05"><span data-pf="name"></span></div><div style="flex: none; font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; line-height: 1"><span data-pf="price"></span></div></div>
+        <div style="margin-top: 6px; display: flex; justify-content: space-between; gap: 12px; font-size: 13.5px; line-height: 1.45; color: #4E4F44"><span class="pf-note"><span data-pf="note"></span></span><span class="mono" style="flex: none; font-size: 10px; color: #6E5E52; padding-top: 2px"><span data-pf="mins"></span> MIN</span></div>
+        <div class="mono" style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(58,59,48,0.12); font-size: 9px; line-height: 1.6; color: #6E5E52">£30 CONSULTATION &amp; PATCH TEST, DEDUCTED WHEN YOU BOOK (HAIR, TATTOO &amp; SKIN)</div>
+        <a href="/contact/" class="jh-cta m-btn" style="margin-top: 14px; padding-top: 16px; padding-bottom: 16px; background: #3A3B30; color: #FFFFFF">GET IN TOUCH</a>
+      </div>
+    </div>
+  </section>
+  <footer style="background: #2F302A; color: #DCD7CC; padding: 8px 24px 0">
+    <div style="padding: 28px 0 24px; border-top: 1px solid #4A4B40; display: flex; flex-direction: column; align-items: center; text-align: center">
+      <img decoding="async" loading="lazy" src="/assets/jh-logo-cream.svg" alt="JH Laser Services logo" style="display: block; width: 116px; height: auto; margin-bottom: 20px">
+      <div style="display: flex; gap: 14px">
+        <a href="tel:+447800810955" aria-label="Call or text 07800 810 955" style="display: flex; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(220,215,204,0.28); align-items: center; justify-content: center; color: #DCD7CC; text-decoration: none"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.6 3.5H6.2A2.2 2.2 0 0 0 4 5.8C4.3 13.6 10.4 19.7 18.2 20a2.2 2.2 0 0 0 2.3-2.2v-2.4a1.2 1.2 0 0 0-.9-1.2l-3-.8a1.2 1.2 0 0 0-1.2.4l-1.2 1.4a11.5 11.5 0 0 1-5.4-5.4l1.4-1.2a1.2 1.2 0 0 0 .4-1.2l-.8-3a1.2 1.2 0 0 0-1.2-.9Z"></path></svg></a>
+        <a href="mailto:hello@jhlaserservices.co.uk" aria-label="Email hello@jhlaserservices.co.uk" style="display: flex; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(220,215,204,0.28); align-items: center; justify-content: center; color: #DCD7CC; text-decoration: none"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="m4 7.5 8 5.5 8-5.5"></path></svg></a>
+        <a href="https://instagram.com/jhlaserservices" aria-label="JH Laser Services on Instagram" style="display: flex; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(220,215,204,0.28); align-items: center; justify-content: center; color: #DCD7CC; text-decoration: none" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"></circle></svg></a>
+      </div>
+      <p style="margin: 22px 0 0; font-size: 14px; line-height: 1.65">Barty Farm, Roundwell, Bearsted<br>Maidstone, Kent, ME14 4HL</p>
+      <div style="margin-top: 14px; display: flex; gap: 20px; font-size: 13px"><a href="/privacy/" style="color: #DCD7CC">Privacy policy</a><a href="/cancellation/" style="color: #DCD7CC">Cancellation policy</a></div>
+      <div style="width: 100%; margin-top: 22px; padding-top: 16px; border-top: 1px solid #4A4B40; font-size: 12px; line-height: 1.6; color: #A9A497">
+        <p style="margin: 0">© 2026 JH Laser Services, a trading name of Hissett Medical Ltd, registered in England &amp; Wales.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+</div>
 <script>
+var TC = (t) => t.replace(/(^|\s)([a-z])/g, (m, sp, c) => sp + c.toUpperCase());
+var P = (id, n, mins, price, note) => { var name = TC(n); return { id, label: name + ' · £' + price, name, mins: String(mins), price: '£' + price, note: note || '' }; };
+var CATS = [
+  { id: 'hair', label: 'IPL hair removal', items: [P('unibrow','Unibrow',30,50), P('lip','Lip',30,50), P('chin','Chin',30,50), P('neck','Neck',30,75), P('halfface','Half face',30,100,'Chin, neck, lip & sideburns'), P('fullface','Full face',30,125,'Half face plus cheeks & forehead'), P('underarms','Underarms',30,50), P('forearms','Forearms',30,75), P('nipples','Nipples',30,50), P('chest','Chest',45,100), P('abdomen','Abdomen',45,75), P('navel','Navel line',30,50), P('back','Back',45,150), P('shoulders','Shoulders',30,50), P('buttocks','Buttocks',30,100), P('bikini','Bikini',30,90), P('extbikini','Extended bikini',30,100), P('brazilian','Brazilian',30,115), P('hollywood','Hollywood',30,140), P('halfleg','Half leg',30,125), P('fullleg','Full leg',60,250), P('toes','Toes',30,50)] },
+  { id: 'tattoo', label: 'Tattoo removal', items: [P('s','Small tattoo',30,50,'Up to 5 × 5 cm · guide price, confirmed at consultation'), P('m','Medium tattoo',45,75,'Up to 8 × 8 cm · guide price, confirmed at consultation'), P('l','Large tattoo',60,95,'Up to 12 × 12 cm · guide price, confirmed at consultation'), P('xl','Extra large tattoo',90,125,'Up to 20 × 20 cm · guide price, confirmed at consultation')] },
+  { id: 'skin', label: 'Skin rejuvenation', items: [P('pigment','Age & sun spots',45,125,'Pigmentation removal'), P('veinsface','Thread veins, face',45,125), P('veinsbody','Thread veins, body',45,125), P('fnc','Face, neck & chest',60,125,'Skin rejuvenation'), P('hands','Hands',30,50,'Skin rejuvenation')] },
+  { id: 'scar', label: 'Scar therapy', items: [P('scarfirst','First visit',40,75,'Consultation and your first 20 minutes of treatment'), P('scarsession','Treatment session','40–60','80–£120','Hands-on Restore Scar Therapy')] }
+];
+
+
+
+var TC = (t) => t.replace(/(^|\s)([a-z])/g, (m, sp, c) => sp + c.toUpperCase());
+var P = (id, n, mins, price, note) => { var name = TC(n); return { id, label: name + ' · £' + price, name, mins: String(mins), price: '£' + price, note: note || '' }; };
+var CATS = [
+  { id: 'hair', label: 'IPL hair removal', items: [P('unibrow','Unibrow',30,50), P('lip','Lip',30,50), P('chin','Chin',30,50), P('neck','Neck',30,75), P('halfface','Half face',30,100,'Chin, neck, lip & sideburns'), P('fullface','Full face',30,125,'Half face plus cheeks & forehead'), P('underarms','Underarms',30,50), P('forearms','Forearms',30,75), P('nipples','Nipples',30,50), P('chest','Chest',45,100), P('abdomen','Abdomen',45,75), P('navel','Navel line',30,50), P('back','Back',45,150), P('shoulders','Shoulders',30,50), P('buttocks','Buttocks',30,100), P('bikini','Bikini',30,90), P('extbikini','Extended bikini',30,100), P('brazilian','Brazilian',30,115), P('hollywood','Hollywood',30,140), P('halfleg','Half leg',30,125), P('fullleg','Full leg',60,250), P('toes','Toes',30,50)] },
+  { id: 'tattoo', label: 'Tattoo removal', items: [P('s','Small tattoo',30,50,'Up to 5 × 5 cm · guide price, confirmed at consultation'), P('m','Medium tattoo',45,75,'Up to 8 × 8 cm · guide price, confirmed at consultation'), P('l','Large tattoo',60,95,'Up to 12 × 12 cm · guide price, confirmed at consultation'), P('xl','Extra large tattoo',90,125,'Up to 20 × 20 cm · guide price, confirmed at consultation')] },
+  { id: 'skin', label: 'Skin rejuvenation', items: [P('pigment','Age & sun spots',45,125,'Pigmentation removal'), P('veinsface','Thread veins, face',45,125), P('veinsbody','Thread veins, body',45,125), P('fnc','Face, neck & chest',60,125,'Skin rejuvenation'), P('hands','Hands',30,50,'Skin rejuvenation')] },
+  { id: 'scar', label: 'Scar therapy', items: [P('scarfirst','First visit',40,75,'Consultation and your first 20 minutes of treatment'), P('scarsession','Treatment session','40–60','80–£120','Hands-on Restore Scar Therapy')] }
+];
+
 (function(){
-  // Full-screen sections match the visitor's window height.
+  var D=document.querySelector('.jh-d'),M=document.querySelector('.jh-m');
+  function mob(){return window.innerWidth<768;}
+  function vis(){return mob()?M:D;}
   window.addEventListener('resize',window.jhFit);
+  // Footer height, so the closing call-to-action and the footer together fill one screen.
+  function foot(){var f=vis()&&vis().querySelector('footer');if(f&&f.offsetHeight)document.documentElement.style.setProperty('--foot',f.offsetHeight+'px');}
+  foot();window.addEventListener('load',foot);window.addEventListener('resize',foot);
+
   // FAQs: one open at a time.
   document.querySelectorAll('.faq-q').forEach(function(btn){
     btn.addEventListener('click',function(){
@@ -333,49 +624,83 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,su
       if(!open){item.classList.add('is-open');btn.setAttribute('aria-expanded','true');}
     });
   });
-  // Directions: Google Maps by default (opens the Google Maps app on Android, or in the browser).
+  // Directions: Google Maps by default (the Google Maps app on Android, or the browser).
   // iPhones and iPads open Apple Maps, the built-in maps app, instead.
   var ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1);
   if(ios)document.querySelectorAll('[data-directions]').forEach(function(a){a.href='https://maps.apple.com/?daddr='+encodeURIComponent('Barty Farm, Roundwell, Bearsted, Maidstone ME14 4HL')+'&dirflg=d';});
-  // Prices: treatment tabs.
-  document.querySelectorAll('.ptab[data-tab]').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var k=btn.getAttribute('data-tab');
-      document.querySelectorAll('.ptab[data-tab]').forEach(function(b){var on=b===btn;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');});
-      document.querySelectorAll('.pp[data-panel]').forEach(function(p){p.classList.toggle('on',p.getAttribute('data-panel')===k);});
-    });
-  });
-  // Links like /prices/?tab=tattoo#price-list open the Prices page on that treatment's tab.
-  var qt=(location.search.match(/[?&]tab=([a-z]+)/)||[])[1];
-  if(qt){var tb=document.querySelector('.ptab[data-tab="'+qt+'"]');if(tb){tb.click();var tg=location.hash&&document.getElementById(location.hash.slice(1));if(tg)setTimeout(function(){tg.scrollIntoView();},0);}}
-  document.querySelectorAll('[data-goto]').forEach(function(a){
-    a.addEventListener('click',function(){var t=document.querySelector('.ptab[data-tab="'+a.getAttribute('data-goto')+'"]');if(t)t.click();});
-  });
-})();
-
-const TC = (t) => t.replace(/(^|\s)([a-z])/g, (m, sp, c) => sp + c.toUpperCase());
-const P = (id, n, mins, price, note) => { const name = TC(n); return { id, label: name + ' · £' + price, name, mins: String(mins), price: '£' + price, note: note || '' }; };
-const CATS = [
-  { id: 'hair', label: 'IPL hair removal', items: [P('unibrow','Unibrow',30,50), P('lip','Lip',30,50), P('chin','Chin',30,50), P('neck','Neck',30,75), P('halfface','Half face',30,100,'Chin, neck, lip & sideburns'), P('fullface','Full face',30,125,'Half face plus cheeks & forehead'), P('underarms','Underarms',30,50), P('forearms','Forearms',30,75), P('nipples','Nipples',30,50), P('chest','Chest',45,100), P('abdomen','Abdomen',45,75), P('navel','Navel line',30,50), P('back','Back',45,150), P('shoulders','Shoulders',30,50), P('buttocks','Buttocks',30,100), P('bikini','Bikini',30,90), P('extbikini','Extended bikini',30,100), P('brazilian','Brazilian',30,115), P('hollywood','Hollywood',30,140), P('halfleg','Half leg',30,125), P('fullleg','Full leg',60,250), P('toes','Toes',30,50)] },
-  { id: 'tattoo', label: 'Tattoo removal', items: [P('s','Small tattoo',30,50,'Up to 5 × 5 cm · guide price, confirmed at consultation'), P('m','Medium tattoo',45,75,'Up to 8 × 8 cm · guide price, confirmed at consultation'), P('l','Large tattoo',60,95,'Up to 12 × 12 cm · guide price, confirmed at consultation'), P('xl','Extra large tattoo',90,125,'Up to 20 × 20 cm · guide price, confirmed at consultation')] },
-  { id: 'skin', label: 'Skin rejuvenation', items: [P('pigment','Age & sun spots',45,125,'Pigmentation removal'), P('veinsface','Thread veins, face',45,125), P('veinsbody','Thread veins, body',45,125), P('fnc','Face, neck & chest',60,125,'Skin rejuvenation'), P('hands','Hands',30,50,'Skin rejuvenation')] },
-  { id: 'scar', label: 'Scar therapy', items: [P('scarfirst','First visit',40,75,'Consultation and your first 20 minutes of treatment'), P('scarsession','Treatment session','40–60','80–£120','Hands-on Restore Scar Therapy')] }
-];
-
-(function(){
-  var cs=document.getElementById('pf-cat'),is=document.getElementById('pf-item');if(!cs)return;
-  var state={cat:'hair',item:'fullface'};
-  CATS.forEach(function(c){var o=document.createElement('option');o.value=c.id;o.textContent=c.label;o.style.color='#3A3B30';cs.appendChild(o);});
-  function render(fill){
-    var cat=CATS.find(function(c){return c.id===state.cat;});var it=cat.items.find(function(i){return i.id===state.item;})||cat.items[0];
-    if(fill){is.innerHTML='';cat.items.forEach(function(i){var o=document.createElement('option');o.value=i.id;o.textContent=i.label;o.style.color='#3A3B30';is.appendChild(o);});}
-    cs.value=cat.id;is.value=it.id;
-    var v={catLabel:cat.label.toUpperCase(),name:it.name,note:it.note,price:it.price,mins:it.mins};
-    document.querySelectorAll('[data-pf]').forEach(function(el){el.textContent=v[el.getAttribute('data-pf')];});
+  // Prices: treatment tabs (each layout has its own set; choosing one keeps both layouts in step).
+  function pick(k){
+    document.querySelectorAll('.ptab[data-tab]').forEach(function(b){var on=b.getAttribute('data-tab')===k;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');});
+    document.querySelectorAll('.pp[data-panel]').forEach(function(p){p.classList.toggle('on',p.getAttribute('data-panel')===k);});
   }
-  cs.addEventListener('change',function(){var c=CATS.find(function(x){return x.id===cs.value;});state={cat:c.id,item:c.items[0].id};render(true);});
-  is.addEventListener('change',function(){state.item=is.value;render(false);});
-  render(true);
+  document.querySelectorAll('.ptab[data-tab]').forEach(function(b){b.addEventListener('click',function(){pick(b.getAttribute('data-tab'));});});
+  document.querySelectorAll('[data-goto]').forEach(function(a){a.addEventListener('click',function(){pick(a.getAttribute('data-goto'));});});
+  var qt=(location.search.match(/[?&]tab=([a-z]+)/)||[])[1];
+  if(qt&&document.querySelector('.ptab[data-tab="'+qt+'"]'))pick(qt);
+
+  // Links that name a section of the other layout (e.g. a desktop link opened on a phone) go to the matching section.
+  var ALIAS={"m-price-finder": "price-finder", "m-questions": "questions", "m-treatments": "treatments", "price-finder": "m-price-finder", "questions": "m-questions", "treatments": "m-treatments"};
+  function target(id){var t=document.getElementById(id);if(t&&t.offsetParent!==null)return t;
+    var a=ALIAS[id];var u=a&&document.getElementById(a);if(u&&u.offsetParent!==null)return u;return t;}
+  // Pages opened without a #section always start at the top (e.g. the back button).
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  if(!location.hash){try{window.scrollTo({top:0,left:0,behavior:'instant'});}catch(e){window.scrollTo(0,0);}}
+  // Pages opened at a #section: once the screen-height sections and images have settled, line the section up with the top.
+  if(location.hash){(function(){var id=decodeURIComponent(location.hash.slice(1)),done=false,stop=function(){done=true;};
+    function go(){if(done)return;var t=target(id);if(!t)return;try{t.scrollIntoView({behavior:'instant',block:'start'});}catch(e){t.scrollIntoView(true);}}
+    ['wheel','touchstart','keydown'].forEach(function(e){window.addEventListener(e,stop,{passive:true,once:true});});
+    go();window.addEventListener('load',function(){setTimeout(go,60);if(window.ResizeObserver){var ro=new ResizeObserver(go);ro.observe(document.body);setTimeout(function(){ro.disconnect();},1500);}});})();}
+  // In-page links (#section) use the matching section of whichever layout is showing.
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1);if(!id)return;
+    if(id==='main'){e.preventDefault();var s=vis().querySelector('section');if(s){s.setAttribute('tabindex','-1');s.style.outline='none';s.focus();s.scrollIntoView();}return;}
+    var t=document.getElementById(id);if(t&&t.offsetParent!==null)return;var u=target(id);if(u&&u!==t){e.preventDefault();u.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'','#'+u.id);}});
+
+  // Price finder (home page, both layouts).
+  if(window.CATS)document.querySelectorAll('.jh-page').forEach(function(root){
+    var cs=root.querySelector('[data-pf-cat]'),is=root.querySelector('[data-pf-item]');if(!cs||!is)return;
+    var state={cat:'hair',item:'fullface'};
+    CATS.forEach(function(c){var o=document.createElement('option');o.value=c.id;o.textContent=c.label;o.style.color='#3A3B30';cs.appendChild(o);});
+    function render(fill){
+      var cat=CATS.find(function(c){return c.id===state.cat;});var it=cat.items.find(function(i){return i.id===state.item;})||cat.items[0];
+      if(fill){is.innerHTML='';cat.items.forEach(function(i){var o=document.createElement('option');o.value=i.id;o.textContent=i.label;o.style.color='#3A3B30';is.appendChild(o);});}
+      cs.value=cat.id;is.value=it.id;
+      var v={catLabel:cat.label.toUpperCase(),name:it.name,note:it.note,price:it.price,mins:it.mins};
+      root.querySelectorAll('[data-pf]').forEach(function(el){el.textContent=v[el.getAttribute('data-pf')];});
+    }
+    cs.addEventListener('change',function(){var c=CATS.find(function(x){return x.id===cs.value;});state={cat:c.id,item:c.items[0].id};render(true);});
+    is.addEventListener('change',function(){state.item=is.value;render(false);});
+    render(true);
+  });
+
+  if(!M)return;
+  // ---- Mobile layout ----
+  // Treatment pages: tabs swap the content; the booking bar shows after the top screen and hides at the closing call-to-action.
+  var tabs=M.querySelectorAll('.x-tab[data-xtab]');
+  tabs.forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-xtab'),sec=b.closest('section');
+    sec.querySelectorAll('.x-tab[data-xtab]').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on?'true':'false');});
+    sec.querySelectorAll('.x-panel[data-xpanel]').forEach(function(p){p.classList.toggle('on',p.getAttribute('data-xpanel')===k);});
+    if(sec.getBoundingClientRect().top<0){var y=sec.getBoundingClientRect().top+window.scrollY;try{window.scrollTo({top:y,behavior:'smooth'});}catch(e){window.scrollTo(0,y);}}});});
+  var bar=M.querySelector('.x-bar'),hero=M.querySelector('.p-hero'),cta=M.querySelector('.m-cta');
+  if(bar&&hero&&cta){var f=function(){bar.classList.toggle('on',window.scrollY>hero.offsetHeight*0.7&&cta.getBoundingClientRect().top>window.innerHeight-40);};window.addEventListener('scroll',f,{passive:true});f();}
+  // Carousels: once the page has loaded, fetch the photos of the cards still off to the side, so they're ready when swiped.
+  window.addEventListener('load',function(){if(mob())M.querySelectorAll('.t-track img[loading="lazy"]').forEach(function(i){i.loading='eager';});});
+  // Carousels: dots follow the card in view; tapping a dot slides to that card.
+  M.querySelectorAll('.t-track').forEach(function(t){var c=t.querySelectorAll('.t-card'),d=t.parentElement.querySelectorAll('.t-dot');if(c.length<2)return;
+    function set(i){d.forEach(function(x,k){x.classList.toggle('on',k===i);x.setAttribute('aria-current',k===i?'true':'false');});}
+    t.addEventListener('scroll',function(){var w=c[1].offsetLeft-c[0].offsetLeft;set(t.scrollLeft>=t.scrollWidth-t.clientWidth-4?c.length-1:Math.round(t.scrollLeft/w));},{passive:true});
+    d.forEach(function(x){x.addEventListener('click',function(){var i=+x.getAttribute('data-dot');t.scrollTo({left:c[i].offsetLeft-c[0].offsetLeft,behavior:'smooth'});set(i);});});});
+  // Treatment pages: area / size chips update the price.
+  if(window.OPTS)M.querySelectorAll('.p-chip[data-opt]').forEach(function(b){b.addEventListener('click',function(){var i=+b.getAttribute('data-opt');
+    M.querySelectorAll('.p-chip[data-opt]').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
+    M.querySelectorAll('[data-sel]').forEach(function(el){el.textContent=OPTS[i][+el.getAttribute('data-sel')];});});});
+  // Menu.
+  var btn=M.querySelector('.m-menu-btn'),nav=document.getElementById('m-menu');if(!btn||!nav)return;
+  function set(o){nav.classList.toggle('m-open',o);btn.setAttribute('aria-expanded',o?'true':'false');nav.setAttribute('aria-hidden',o?'false':'true');if(o)nav.removeAttribute('inert');else nav.setAttribute('inert','');}
+  set(false);
+  btn.addEventListener('click',function(){set(!nav.classList.contains('m-open'));});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('m-open')){set(false);btn.focus();}});
+  window.addEventListener('resize',function(){if(!mob())set(false);});
 })();
 </script>
 </body>

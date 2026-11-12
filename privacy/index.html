@@ -51,12 +51,12 @@ html{background:#F8F6F2;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .jh-skip:focus{top:12px}
 .jh-ar{display:inline-block;width:1em;height:1em;vertical-align:-.14em;overflow:visible}
 /* Directions: choose Google Maps or Apple Maps. A bottom sheet on phones, a small card on larger screens. */
-.jh-dir{position:fixed;inset:0;z-index:2000;display:flex;align-items:flex-end;justify-content:center;visibility:hidden;pointer-events:none;transition:visibility 0s linear .16s}
-.jh-dir.on{visibility:visible;pointer-events:auto;transition:visibility 0s}
-.jh-dir-bg{position:absolute;inset:0;background:rgba(47,48,42,.38);opacity:0;transition:opacity .16s ease-out}
-.jh-dir.on .jh-dir-bg{opacity:1}
-.jh-dir-p{position:relative;width:100%;max-width:420px;box-sizing:border-box;margin:0 12px calc(12px + env(safe-area-inset-bottom));padding:26px 22px 18px;border-radius:28px;background:#F8F6F2;box-shadow:0 24px 60px rgba(58,59,48,.22);font-family:'Hanken Grotesk',sans-serif;font-weight:300;color:#3A3B30;transform:translateY(12px);opacity:0;transition:transform .18s cubic-bezier(.2,.7,.2,1),opacity .12s ease-out}
-.jh-dir.on .jh-dir-p{transform:none;opacity:1}
+.jh-dir{position:fixed;inset:0;z-index:2000;display:none;align-items:flex-end;justify-content:center}
+.jh-dir.on{display:flex}
+.jh-dir-bg{position:absolute;inset:0;background:rgba(47,48,42,.38)}
+
+.jh-dir-p{position:relative;width:100%;max-width:420px;box-sizing:border-box;margin:0 12px calc(12px + env(safe-area-inset-bottom));padding:26px 22px 18px;border-radius:28px;background:#F8F6F2;box-shadow:0 24px 60px rgba(58,59,48,.22);font-family:'Hanken Grotesk',sans-serif;font-weight:300;color:#3A3B30}
+
 .jh-dir-k{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6E5E52}
 .jh-dir-t{margin:10px 0 0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.1rem;line-height:1}
 .jh-dir-t i{color:#7B6A5D}
@@ -68,7 +68,7 @@ html{background:#F8F6F2;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .jh-dir-x{all:unset;box-sizing:border-box;display:block;width:100%;text-align:center;margin-top:6px;padding:14px;font:400 11px/1 'DM Mono',monospace;letter-spacing:.12em;color:#6E5E52;cursor:pointer}
 .jh-dir-b a:focus-visible,.jh-dir-x:focus-visible{outline:2px solid #3A3B30;outline-offset:3px}
 @media (min-width:768px){.jh-dir{align-items:center}.jh-dir-p{margin:0;padding:32px 30px 22px}}
-@media (prefers-reduced-motion:reduce){.jh-dir,.jh-dir-bg,.jh-dir-p{transition:none}}
+
 </style>
 <style>
 @media (min-width:768px){
@@ -326,15 +326,16 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[t
         box.innerHTML='<div class="jh-dir-bg"></div><div class="jh-dir-p" role="dialog" aria-modal="true" aria-labelledby="jh-dir-t"><div class="jh-dir-k">DIRECTIONS</div><h2 class="jh-dir-t" id="jh-dir-t">Open in <i>maps.</i></h2><p class="jh-dir-a">Barty Farm, Roundwell, Bearsted, ME14 4HL</p><div class="jh-dir-b">'+(apple?a+g:g+a)+'</div><button type="button" class="jh-dir-x">CANCEL</button></div>';
         document.body.appendChild(box);
         box.querySelector('.jh-dir-bg').addEventListener('click',close);box.querySelector('.jh-dir-x').addEventListener('click',close);
-        box.querySelectorAll('.jh-dir-b a').forEach(function(x){x.addEventListener('click',function(){setTimeout(close,300);});});
+        box.querySelectorAll('.jh-dir-b a').forEach(function(x){x.addEventListener('click',function(){setTimeout(close,0);});});
         box.addEventListener('keydown',function(e){if(e.key==='Escape'){e.stopPropagation();close();}
           if(e.key==='Tab'){var f=box.querySelectorAll('a,button'),first=f[0],lastF=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();lastF.focus();}else if(!e.shiftKey&&document.activeElement===lastF){e.preventDefault();first.focus();}}});}
     }
-    function open(from){
-      build();last=from;box.classList.add('on');box.setAttribute('aria-hidden','false');box.querySelector('.jh-dir-b a').focus({preventScroll:true});
+    function open(from,kb){
+      build();last=from;box.classList.add('on');box.setAttribute('aria-hidden','false');if(kb)box.querySelector('.jh-dir-b a').focus({preventScroll:true});
     }
     if(document.querySelector('[data-directions]'))build();
-    document.querySelectorAll('[data-directions]').forEach(function(l){l.setAttribute('aria-haspopup','dialog');l.addEventListener('click',function(e){e.preventDefault();open(l);});});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&box&&box.classList.contains('on'))close();});
+    document.querySelectorAll('[data-directions]').forEach(function(l){l.setAttribute('aria-haspopup','dialog');l.addEventListener('click',function(e){e.preventDefault();open(l,e.detail===0);});});
   })();
   // Prices: treatment tabs (each layout has its own set; choosing one keeps both layouts in step).
   function pick(k){
@@ -380,6 +381,14 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[t
     render(true);
   });
 
+  // Screen-size check: add ?jhdebug to any address to see the measurements this phone reports.
+  if(/jhdebug/.test(location.search))window.addEventListener('load',function(){
+    function u(v){var d=document.createElement('div');d.style.cssText='position:fixed;top:0;height:'+v+';width:0';document.body.appendChild(d);var h=d.getBoundingClientRect().height;d.remove();return Math.round(h);}
+    var o=document.createElement('pre');o.style.cssText='position:fixed;left:8px;right:8px;bottom:8px;z-index:3000;margin:0;padding:10px;background:rgba(0,0,0,.82);color:#fff;font:11px/1.45 monospace;border-radius:10px;white-space:pre-wrap;pointer-events:none';
+    function r(){var t=document.getElementById('m-treatments'),i=t&&t.querySelector('.t-card>div'),dt=t&&t.querySelector('.t-dots');
+      o.textContent='inner '+innerWidth+'x'+innerHeight+'  vv '+(window.visualViewport?Math.round(visualViewport.height):'-')+'\nsvh '+u('100svh')+'  dvh '+u('100dvh')+'  lvh '+u('100lvh')+'  vh '+u('100vh')+'\n--screen '+getComputedStyle(document.documentElement).getPropertyValue('--screen')+(t?'\ntreatments sec '+Math.round(t.getBoundingClientRect().height)+'  img '+Math.round(i.getBoundingClientRect().height)+'  dots->end '+Math.round(t.getBoundingClientRect().bottom-dt.getBoundingClientRect().bottom):'')+'\n'+navigator.userAgent.slice(0,120);}
+    document.body.appendChild(o);r();window.addEventListener('resize',r);window.addEventListener('scroll',r,{passive:true});});
+
   if(!M)return;
   // ---- Mobile layout ----
   // Treatment pages: tabs swap the content; the booking bar shows after the top screen and hides at the closing call-to-action.
@@ -390,6 +399,16 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[t
     if(sec.getBoundingClientRect().top<0){var y=sec.getBoundingClientRect().top+window.scrollY;try{window.scrollTo({top:y,behavior:'smooth'});}catch(e){window.scrollTo(0,y);}}});});
   var bar=M.querySelector('.x-bar'),hero=M.querySelector('.p-hero'),cta=M.querySelector('.m-cta');
   if(bar&&hero&&cta){var f=function(){bar.classList.toggle('on',window.scrollY>hero.offsetHeight*0.7&&cta.getBoundingClientRect().top>window.innerHeight-40);};window.addEventListener('scroll',f,{passive:true});f();}
+  // Carousels: the photos take whatever height the section has spare, so the section fills the screen exactly.
+  // Measured here rather than left to CSS alone, because iPhone Safari doesn't always stretch them.
+  function fillCards(){if(!mob())return;
+    var probe=document.createElement('div');probe.style.cssText='position:absolute;top:0;width:0;height:var(--screen)';M.appendChild(probe);var H=probe.getBoundingClientRect().height;probe.remove();
+    M.querySelectorAll('.t-track').forEach(function(t){var sec=t.closest('section'),ph=t.querySelectorAll('.t-card>div:first-child'),dots=sec.querySelector('.t-dots');if(!ph.length||!dots)return;
+      ph.forEach(function(d){d.style.setProperty('flex','none','important');d.style.setProperty('height','110px','important');});
+      t.style.setProperty('flex','none','important');sec.style.setProperty('min-height','0','important');
+      var used=sec.getBoundingClientRect().height;sec.style.removeProperty('min-height');
+      var h=Math.max(110,Math.min(460,Math.floor(110+H-used)));ph.forEach(function(d){d.style.setProperty('height',h+'px','important');});});}
+  fillCards();window.addEventListener('load',fillCards);window.addEventListener('resize',function(){setTimeout(fillCards,50);});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fillCards);
   // Carousels: once the page has loaded, fetch the photos of the cards still off to the side, so they're ready when swiped.
   window.addEventListener('load',function(){if(mob())M.querySelectorAll('.t-track img[loading="lazy"]').forEach(function(i){i.loading='eager';});});
   // Carousels: dots follow the card in view; tapping a dot slides to that card.
